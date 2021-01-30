@@ -356,6 +356,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b55a32e8760e4e14cafd8f0d7d2aac0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualCar: {fileID: 2844790354575648673}
+  centreOfMass: {fileID: 91645561284085510}
+  maxAngle: 0
+  maxTorque: 100
+  topSpeed: 50
+  currentSpeed: 0
 --- !u!64 &5283487746205083403
 MeshCollider:
   m_ObjectHideFlags: 0
