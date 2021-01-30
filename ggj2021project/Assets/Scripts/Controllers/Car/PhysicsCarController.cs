@@ -22,7 +22,7 @@ public class PhysicsCarController : MonoBehaviour
     public Transform visualCar;
     public Transform centreOfMass;
 
-    //public GameObject CarEngine;
+    public GameObject CarEngine;
 
     // here we find all the WheelColliders down in the hierarchy
     public void Start()
@@ -36,20 +36,27 @@ public class PhysicsCarController : MonoBehaviour
     // this helps us to figure our which wheels are front ones and which are rear
     public void Update()
     {
-        float angle = maxAngle * Input.GetAxis("Horizontal");
-        float torque = maxTorque * Input.GetAxis("Vertical");
+        float vInput = Input.GetAxis("Vertical");
+        float hInput = Input.GetAxis("Horizontal");
 
+        float angle = maxAngle * hInput;
+        float torque = maxTorque * vInput;
+
+        // Brakes!
         if (Input.GetKey(KeyCode.Space))
         {
             brakes = brakesPower;
-            lights[0].GetComponent<Light>().enabled = true;
-            lights[1].GetComponent<Light>().enabled = true;
+            EnableBrakeLights(true);
         }
         else
         {
             brakes = 0f;
-            lights[0].GetComponent<Light>().enabled = false;
-            lights[1].GetComponent<Light>().enabled = false;
+            EnableBrakeLights(false);
+        }
+
+        if (vInput < 0)
+        {
+            EnableBrakeLights(true);
         }
 
         foreach (WheelCollider wheel in wheels)
@@ -62,7 +69,6 @@ public class PhysicsCarController : MonoBehaviour
 
             // apply the brakes!
             wheel.brakeTorque = brakes;
-
 
             // update visual wheels if any
             {
@@ -81,7 +87,7 @@ public class PhysicsCarController : MonoBehaviour
         currentSpeed = GetComponent<Rigidbody>().velocity.magnitude;
 
         pitch = currentSpeed / topSpeed;
-        //CarEngine.GetComponent<AudioSource>().pitch = pitch + 0.5f;
+        CarEngine.GetComponent<AudioSource>().pitch = pitch + 0.5f;
     }
 
     public void FixedUpdate()
@@ -90,5 +96,11 @@ public class PhysicsCarController : MonoBehaviour
         {
             GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized * topSpeed;
         }
+    }
+
+    void EnableBrakeLights(bool on)
+    {
+        lights[0].GetComponent<Light>().enabled = on;
+        lights[1].GetComponent<Light>().enabled = on;
     }
 }

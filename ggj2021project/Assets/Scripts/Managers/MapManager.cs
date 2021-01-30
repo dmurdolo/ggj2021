@@ -7,6 +7,7 @@ public class MapManager : MonoBehaviour
 
     public GameObject GrassTile;
     public GameObject IslandTile;
+    public GameObject CheckpointTile;
 
     public GameObject[] CurbTiles;
     public GameObject[] RoadTiles;
@@ -73,25 +74,25 @@ public class MapManager : MonoBehaviour
                "BBBBBBBBBBBBBBBBBBBBBBBBB" +
                "GCCCCCCCCCCCCCCCCCCCCCCCB" +
                "GRRRRRRRRRRRRRRRRRRRRRRRB" +
-               "GRGGRGGRIIIIRGGGGGGGGGGRB" +
+               "GRGGRGGRIIIIRGGGGGGGGGPRB" +
                "GRGGRGGRGGGGRGGGGGGGGGGRB" +
                
                "GRRRRRRRGGGGRGGGGGGGGGGRB" +
                "GRGGRGGRGGGGRGGGGGGGGGGRB" +
-               "GRGGRGGRGGGGRGGGGGGGGGGRB" +
+               "GRGGRGGRPGGGRGGGGGGGGGGRB" +
                "GRRRRRRRGGGGRGGGGGGGGGGRB" +
                "GRGGGGGGGGGGRGGGGGGGGGGRB" +
 
                "GRGGGGGGGGGGRGGGGGGGGGGRB" +
-               "GRCCCCCCCCCCRGGGGGGGGGGRB" +
+               "GRCCCCCCCCCCRPGGGGGGGGGRB" +
                "GRRRRRRRRRRRRRRRRRRRRRRRB" +
-               "GRCCCCCCCCCCRGGGGGGGGGGRB" +
+               "GRCCCCCCCCCCRCGGGGGGGGGRB" +
                "GRCGGGGGGGGCRGGGGGGGGGGRB" +
 
                "GRCGGGGGGGGCRGGGGGGGGGGRB" +
                "GRCGGGGGGGGCRGGGGGGGGGGRB" +
                "GRCGGGGGGGGCRGGGGRRRRRRRB" +
-               "GRCGGGGGGGGCRGGGGRGGRGGRB" +
+               "GRPGGGGGGGGPRGGGGRGGRGGRB" +
                "GRCGGGGGGGGCRGGGGRGGRGGRB" +
 
                "GRCGGGGGGGGCRGGGGRRRRRRRB" +
@@ -187,6 +188,12 @@ public class MapManager : MonoBehaviour
                 {
                     WorldManager.CreateTile(MapParent, GrassTile, x, y);
                     WorldManager.CreateTile(MapParent, BuildingTiles[Random.Range(0, BuildingTiles.Length)], x, y);
+                }
+
+                // Checkpoint
+                else if (mapCharacter == "P")
+                {
+                    GameObject checkpoint = WorldManager.CreateTile(MapParent, CheckpointTile, x, y);
                 }
 
                 // Grass
