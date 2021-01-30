@@ -11,7 +11,13 @@ public class PhysicsCarController : MonoBehaviour
     public float currentSpeed = 0;
     private float pitch = 4f;
 
+    [SerializeField]
+    private float brakes = 0f;
+    [SerializeField]
+    private float brakesPower = 500f;
+
     public Transform visualCar;
+    public Transform centreOfMass;
 
     //public GameObject CarEngine;
 
@@ -19,7 +25,7 @@ public class PhysicsCarController : MonoBehaviour
     public void Start()
     {
         wheels = GetComponentsInChildren<WheelCollider>();
-        GetComponent<Rigidbody>().centerOfMass = visualCar.localPosition;
+        GetComponent<Rigidbody>().centerOfMass = centreOfMass.localPosition;
     }
 
     // this is a really simple approach to updating wheels
@@ -30,14 +36,25 @@ public class PhysicsCarController : MonoBehaviour
         float angle = maxAngle * Input.GetAxis("Horizontal");
         float torque = maxTorque * Input.GetAxis("Vertical");
 
+        if (Input.GetKey(KeyCode.Space))
+        {
+            brakes = brakesPower;
+        }
+        else
+        {
+            brakes = 0f;
+        }
+
         foreach (WheelCollider wheel in wheels)
         {
             // a simple car where front wheels steer while rear ones drive
             if (wheel.transform.localPosition.z > 0)
                 wheel.steerAngle = angle;
 
-            //if (wheel.transform.localPosition.z < 0)
             wheel.motorTorque = torque;
+
+            // apply the brakes!
+            wheel.brakeTorque = brakes;
 
             // update visual wheels if any
             {
@@ -50,7 +67,6 @@ public class PhysicsCarController : MonoBehaviour
                 shapeTransform.position = p;
                 shapeTransform.rotation = q;
             }
-
         }
 
         // CURRENT SPEED
