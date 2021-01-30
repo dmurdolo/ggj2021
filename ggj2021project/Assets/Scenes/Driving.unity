@@ -2250,7 +2250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxAngle: 30
-  maxTorque: 1000
+  maxTorque: 500
   topSpeed: 150
   currentSpeed: 0
   visualCar: {fileID: 1080980057}
