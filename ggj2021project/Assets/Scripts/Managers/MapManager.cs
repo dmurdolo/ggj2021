@@ -6,12 +6,14 @@ public class MapManager : MonoBehaviour
     public int Level = 1;
 
     public GameObject GrassTile;
+    public GameObject IslandTile;
 
     public GameObject[] RoadTiles;
     public GameObject[] BuildingTiles;
 
     private GameObject MapParent;
     private string mapString;
+    private float IslandOffset = 0;
 
     void Start()
     {
@@ -69,13 +71,13 @@ public class MapManager : MonoBehaviour
             mapString =
                "BBBBBBBBBBBBBBBBBBBBBBBBB" +
                "GRRRRRRRRRRRRRRRRRRRRRRRB" +
+               "GRGGRGGRIIIIGGGGGGGGGGGRB" +
+               "GRGGRGGRGGGGGGGGGGGGGGGRB" +
+               "GRRRRRRRGGGGGGGGGGGGGGGRB" +
+
                "GRGGRGGRGGGGGGGGGGGGGGGRB" +
                "GRGGRGGRGGGGGGGGGGGGGGGRB" +
                "GRRRRRRRGGGGGGGGGGGGGGGRB" +
-
-               "GRGGRGGRGGGGGGGGGGGGGGGRB" +
-               "GRGGRGGRGGGGGGGGGGGGGGGRB" +
-               "GRRRRRRRGGGGGGGGGGGGGGGRB" +
                "GRGGGGGGGGGGGGGGGGGGGGGRB" +
                "GRGGGGGGGGGGGGGGGGGGGGGRB" +
 
@@ -87,13 +89,13 @@ public class MapManager : MonoBehaviour
 
                "GRGGGGGGGGGGGGGGGGGGGGGRB" +
                "GRGGGGGGGGGGGGGGGGGGGGGRB" +
-               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
-               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
-               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGRRRRRRRB" +
+               "GRGGGGGGGGGGGGGGGRGGRGGRB" +
+               "GRGGGGGGGGGGGGGGGRGGRGGRB" +
 
-               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
-               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
-               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGRRRRRRRB" +
+               "GRGGGGGGGGGGGGGGGRGGRGGRB" +
+               "GRGGGGGGGGGGGGGGGRGGRGGRB" +
                "GRRRRRRRRRRRRRRRRRRRRRRRB" +
                "GGGGGGGGGGGGGGGGGGGGGGGGB";
             
@@ -157,6 +159,14 @@ public class MapManager : MonoBehaviour
                     else if (grid == "1100") WorldManager.CreateTile(MapParent, RoadTiles[10], x, y);
                     // Corner Up Left
                     else if (grid == "1001") WorldManager.CreateTile(MapParent, RoadTiles[11], x, y);
+                }
+
+                // Island
+                else if (mapCharacter == "I")
+                {
+                    GameObject island = WorldManager.CreateTile(MapParent, IslandTile, x, y);
+                    island.GetComponent<Island>().Offset = IslandOffset;
+                    IslandOffset += 1.0f;
                 }
                 
                 // Building
