@@ -1,9 +1,14 @@
 fileFormatVersion: 2
-guid: 611aae1887e4baa4c83978b2d8d1e9c1
+guid: 30ef18b039d90ce4fb7c54e334aa816c
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
   externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Emission Blue
+    second: {fileID: 2100000, guid: 4f04e47ac05bb934d91fcec09cb14f00, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -12,13 +17,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: Emission White.001
+    second: {fileID: 2100000, guid: c7ec6751f4b0ce444a4eaa2353cb0f08, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: Ground
     second: {fileID: 2100000, guid: 4602cf3cbd5affd4399b659a719c422d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Metal
-    second: {fileID: 2100000, guid: e993c3c21e1d7224998b6f820fa19555, type: 2}
+      name: Metal 2
+    second: {fileID: 2100000, guid: 8d42c7dbf65722c46b57e0ddfd5aa5ef, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -105,7 +115,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.125
+    globalScale: 0.00125
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

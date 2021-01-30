@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 611aae1887e4baa4c83978b2d8d1e9c1
+guid: 664f71ac0506e444d8d133608c9a92d5
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Emission Pink
-    second: {fileID: 2100000, guid: 3e113df22aaf0454aba9b3dc1a0f6bd1, type: 2}
+      name: Emission Blue
+    second: {fileID: 2100000, guid: 4f04e47ac05bb934d91fcec09cb14f00, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -17,8 +17,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Metal
-    second: {fileID: 2100000, guid: e993c3c21e1d7224998b6f820fa19555, type: 2}
+      name: Metal 3
+    second: {fileID: 2100000, guid: ac51108cafee19243acd518759bb6ab9, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -105,7 +105,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.125
+    globalScale: 0.00125
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

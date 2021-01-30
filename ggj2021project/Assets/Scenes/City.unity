@@ -268,7 +268,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 83c01aad019bcf847814c4074aff56bc, type: 2}
+  - {fileID: 2100000, guid: 4602cf3cbd5affd4399b659a719c422d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -306,7 +306,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 385028304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.1, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children: []
   m_Father: {fileID: 0}
@@ -819,7 +819,7 @@ MonoBehaviour:
   Level: 1
   GrassTile: {fileID: 8815228771601894418, guid: 4221517fb0ae3f64da2a52413354c6fd, type: 3}
   IslandTile: {fileID: 4545655728267330840, guid: 66d8aedbb4c4c6342b8b90175c8f7844, type: 3}
-  CheckpointTile: {fileID: 4545655728267330840, guid: 56231907e52cf11418deefa75d7bb5eb, type: 3}
+  CheckpointTile: {fileID: 4545655728267330840, guid: 2fdf4229b252a204980ba804b16377e6, type: 3}
   CurbTiles:
   - {fileID: 6799178250950533446, guid: 1dbdd502789bf8446947454420956e29, type: 3}
   - {fileID: 6799178250950533446, guid: d3648347abeffa84393c5cd6efc3cb70, type: 3}
@@ -839,7 +839,12 @@ MonoBehaviour:
   - {fileID: 3606056794803213061, guid: aca6a1b4be0a44443a7e8666dc701721, type: 3}
   - {fileID: 3606056794803213061, guid: 81d2dd17cc05658459e7b152c7b74733, type: 3}
   BuildingTiles:
-  - {fileID: 3702652402410648688, guid: a2d0ef638255e2143be39324ed8614f2, type: 3}
+  - {fileID: 919132149155446097, guid: bbe7534ef0649f040b0820a6e0544002, type: 3}
+  - {fileID: 919132149155446097, guid: 11733102f350ebe42b0c2eda8da09737, type: 3}
+  - {fileID: 919132149155446097, guid: f1d9698596f36034e850070b3e5a2e31, type: 3}
+  - {fileID: 919132149155446097, guid: 664f71ac0506e444d8d133608c9a92d5, type: 3}
+  - {fileID: 919132149155446097, guid: 4500e78580cec584bbfacfae204a154e, type: 3}
+  - {fileID: 919132149155446097, guid: 30ef18b039d90ce4fb7c54e334aa816c, type: 3}
 --- !u!4 &1948308943
 Transform:
   m_ObjectHideFlags: 0

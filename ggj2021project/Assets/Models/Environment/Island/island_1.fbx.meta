@@ -18,17 +18,17 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Ground
-    second: {fileID: 2100000, guid: 38f3c1e823ea7da42b5311b328aac230, type: 2}
+    second: {fileID: 2100000, guid: 4602cf3cbd5affd4399b659a719c422d, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Metal.001
-    second: {fileID: 2100000, guid: 9041996595cb7944aa7775fdc5d4847d, type: 2}
+    second: {fileID: 2100000, guid: e993c3c21e1d7224998b6f820fa19555, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Road
-    second: {fileID: 2100000, guid: 58cd1739bd0b1ac48aa537e196e3a020, type: 2}
+    second: {fileID: 2100000, guid: 49757737ca7c4a744b102d7930b5b623, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -59,7 +59,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 0.125
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -110,7 +110,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.00125
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
