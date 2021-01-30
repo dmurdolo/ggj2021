@@ -27,11 +27,11 @@ public class UIManager : MonoBehaviour
     {
         Text _messageText = _messageUI.GetComponent<Text>();
         _messageText.text = message;
-        StartCoroutine(HideCouroutine());
+        StartCoroutine(HideCoroutine());
     }
 
 
-    IEnumerator HideCouroutine()
+    IEnumerator HideCoroutine()
     {
         yield return new WaitForSeconds(8f);
         _messageUI.SetActive(false);

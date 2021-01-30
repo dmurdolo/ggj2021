@@ -2,14 +2,18 @@ using UnityEngine;
 using System.Collections;
 public class PhysicsCarController : MonoBehaviour
 {
-    private WheelCollider[] wheels;
-
+    public Transform visualCar;
+    public Transform centreOfMass;
+    
     public float maxAngle = 30;
     public float maxTorque = 300;
 
     public float topSpeed = 100; // km per hour
     public float currentSpeed = 0;
+    public GameObject CarEngine;
+
     private float pitch = 4f;
+    private WheelCollider[] wheels;
 
     [SerializeField]
     private Light[] lights;
@@ -18,11 +22,6 @@ public class PhysicsCarController : MonoBehaviour
     private float brakes = 0f;
     [SerializeField]
     private float brakesPower = 500f;
-
-    public Transform visualCar;
-    public Transform centreOfMass;
-
-    public GameObject CarEngine;
 
     // here we find all the WheelColliders down in the hierarchy
     public void Start()
@@ -90,7 +89,7 @@ public class PhysicsCarController : MonoBehaviour
         CarEngine.GetComponent<AudioSource>().pitch = pitch + 0.5f;
     }
 
-    public void FixedUpdate()
+    void FixedUpdate()
     {
         if (currentSpeed > topSpeed)
         {
