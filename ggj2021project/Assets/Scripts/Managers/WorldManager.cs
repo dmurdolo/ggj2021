@@ -56,11 +56,23 @@ public class WorldManager : MonoBehaviour
         return new Vector2(((MapSize.x - 1) * TileSize.x) / 2.0f, ((MapSize.y - 1) * TileSize.y) / 2.0f);
     }
 
-    // Get the world position of the specified tile
-    public static Vector2 GetTileWorldPosition(int x, int y)
+    // Get the world XY position of the specified tile
+    public static Vector2 GetTileWorldXY(int x, int y)
     {
         Vector2 offset = GetOffset();
         return new Vector2(-x * TileSize.x + offset.x, y * TileSize.y - offset.y);
+    }
+
+    // Get the world position of the specified tile
+    public static Vector3 GetTileWorldPosition(Vector2Int tilePosition)
+    {
+        return GetTileWorldPosition(tilePosition.x, tilePosition.y);
+    }
+
+    public static Vector3 GetTileWorldPosition(int x, int y)
+    {
+        Vector2 offset = GetOffset();
+        return new Vector3(-x * TileSize.x + offset.x, 0, y * TileSize.y - offset.y);
     }
 
     // Get the tile position from the specified world position
@@ -82,7 +94,7 @@ public class WorldManager : MonoBehaviour
 
     public static GameObject CreateTile(GameObject parent, GameObject go, int x, int y)
     {
-        Vector2 offset = new Vector2(((MapSize.x - 1) * TileSize.x) / 2.0f, ((MapSize.y - 1) * TileSize.y) / 2.0f);
+        Vector2 offset = GetOffset();
 
         GameObject tile = Instantiate(go);
         tile.transform.parent = parent.transform;

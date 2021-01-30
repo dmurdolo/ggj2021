@@ -13,11 +13,16 @@ public class Checkpoint : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _checkpointManager = GameObject.Find("Managers").GetComponent<CheckpointManager>();
+        GameObject managers = GameObject.Find("Managers");
 
-        if (!_checkpointManager)
+        if (managers)
         {
-            Debug.LogError("CheckpointManager component not found.");
+            _checkpointManager = managers.GetComponent<CheckpointManager>();
+
+            if (!_checkpointManager)
+            {
+                Debug.LogError("CheckpointManager component not found.");
+            }
         }
     }
 

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class TrafficManager : MonoBehaviour
 {
@@ -16,7 +17,10 @@ public class TrafficManager : MonoBehaviour
     {
         VehiclesParent = GameObject.Find("Vehicles");
 
-        //PlaceVehicle(1, 2, WorldManager.Direction.Right);
+       //GetRandomRoadTilePosition();
+
+        PlaceVehicle(4, 4, WorldManager.Direction.Right);
+
         //PlaceVehicle(23, 2, WorldManager.Direction.Down);
         //PlaceVehicle(23, 23, WorldManager.Direction.Left);
         //PlaceVehicle(1, 23, WorldManager.Direction.Up);
@@ -29,7 +33,7 @@ public class TrafficManager : MonoBehaviour
     private void PlaceVehicle(int x, int y, WorldManager.Direction direction)
     {
         int yAngle = 0;
-        float xOffset = 0;
+        float xOffset = 0;   // Adjust for left side of the road
         float yOffset = 0;
 
         switch(direction)
@@ -52,10 +56,12 @@ public class TrafficManager : MonoBehaviour
                 break;
         }
 
-        Vector2 worldPosition = WorldManager.GetTileWorldPosition(x, y);
+        Vector2 worldPosition = WorldManager.GetTileWorldXY(x, y);
         GameObject vehicle = Instantiate(Vehicles[Random.Range(0, Vehicles.Length)]);
+        vehicle.GetComponent<NavMeshAgent>().enabled = false;   // It gets placed in the wrong position if you don't do this
         vehicle.transform.parent = VehiclesParent.transform;
         vehicle.transform.eulerAngles = new Vector3(0, yAngle, 0);
         vehicle.transform.position = new Vector3(worldPosition.x + xOffset, 0.005f, worldPosition.y + yOffset);
+        vehicle.GetComponent<NavMeshAgent>().enabled = true;
     }
 }

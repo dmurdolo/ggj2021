@@ -14,6 +14,12 @@ public class Vehicle : MonoBehaviour
 
     void Update()
     {
+        //Drive();
+        return;
+    }
+
+    private void Drive()
+    {
         transform.Translate(Vector3.forward * Time.deltaTime * Speed);
 
         // Get tile position

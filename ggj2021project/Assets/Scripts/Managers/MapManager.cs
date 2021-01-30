@@ -59,6 +59,20 @@ public class MapManager : MonoBehaviour
         }
     }
 
+    public Vector2Int GetRandomRoadTile()
+    {
+        int index;
+        do
+        {
+            index = Random.Range(0, mapString.Length);
+        } while (mapString[index] != 'R');
+        
+        int x = index % WorldManager.MapSize.x;
+        int y = Mathf.FloorToInt(index / WorldManager.MapSize.y);
+
+        return new Vector2Int(x, y);
+    }
+
     private void CreateDefaultTown()
     {
         for (int y = 0; y < WorldManager.MapSize.y; y++)
