@@ -117,11 +117,11 @@ public class MapManager : MonoBehaviour
                 {
                     string grid = GetRoadGrid(x, y);
 
-                    if (grid == "0010") WorldManager.CreateTile(MapParent, CurbTiles[0], x, y);
-                    else if (grid == "0001") WorldManager.CreateTile(MapParent, CurbTiles[1], x, y);
-                    else if (grid == "1000") WorldManager.CreateTile(MapParent, CurbTiles[2], x, y);
-                    else if (grid == "0100") WorldManager.CreateTile(MapParent, CurbTiles[3], x, y);
-                    else WorldManager.CreateTile(MapParent, CurbTiles[0], x, y);
+                    // NESW
+                    if (grid == "0100") WorldManager.CreateTile(MapParent, CurbTiles[0], x, y);
+                    else if (grid == "0010") WorldManager.CreateTile(MapParent, CurbTiles[1], x, y);
+                    else if (grid == "0001") WorldManager.CreateTile(MapParent, CurbTiles[2], x, y);
+                    else if (grid == "1000") WorldManager.CreateTile(MapParent, CurbTiles[3], x, y);
                 }
 
                 // Island
@@ -219,6 +219,6 @@ public class MapManager : MonoBehaviour
     private bool IsRoad(string map, int x, int y)
     {
         string charAt = GetMapCharacterAt(map, x, y);
-        return charAt == "R" || charAt == "H";
+        return charAt == "R";
     }
 }
