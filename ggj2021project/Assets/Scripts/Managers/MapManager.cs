@@ -36,7 +36,7 @@ public class MapManager : MonoBehaviour
         else if (Level == 1)
         {
             WorldManager.MapSize = new Vector2Int(25, 25);
-            TextAsset levelText = Resources.Load<TextAsset>("Levels/level1");
+            TextAsset levelText = Resources.Load<TextAsset>("Levels/level1new");
 
             if (levelText)
             {
@@ -109,6 +109,7 @@ public class MapManager : MonoBehaviour
                     else if (grid == "1100") WorldManager.CreateTile(MapParent, RoadTiles[13], x, y);
                     // Corner Up Left
                     else if (grid == "1001") WorldManager.CreateTile(MapParent, RoadTiles[14], x, y);
+                    else WorldManager.CreateTile(MapParent, RoadTiles[Random.Range(0, 2)], x, y);
                 }
 
                 // Curb
