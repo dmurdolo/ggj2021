@@ -44,19 +44,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.9639149, y: 0.10933498, z: 8.012912}
   m_Center: {x: 2.0180435, y: 0.05466749, z: -0.006454946}
---- !u!65 &1604725810242630789
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7953184828555737252}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.0000005, y: 0.08794231, z: 1.0000005}
-  m_Center: {x: 0, y: -0.043971155, z: 0}
 --- !u!65 &3802020648706986452
 BoxCollider:
   m_ObjectHideFlags: 0

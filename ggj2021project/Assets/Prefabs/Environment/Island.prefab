@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1577653133638875973}
   - component: {fileID: -2629249728950168177}
-  - component: {fileID: -3476379011871752332}
   m_Layer: 0
   m_Name: Island
   m_TagString: Untagged
@@ -48,19 +47,19 @@ MonoBehaviour:
   Amount: 0.2
   Speed: 1
   Offset: 0
---- !u!65 &-3476379011871752332
+--- !u!65 &7920799260995153862
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4545655728267330840}
+  m_GameObject: {fileID: 4816123762556696940}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 8.39, y: 5.44, z: 8.39}
+  m_Center: {x: 0, y: 1.96, z: 0}
 --- !u!1001 &5627008978938446909
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -118,6 +117,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b33aa70223acd104880714e0c4ad8233, type: 3}
+--- !u!1 &4816123762556696940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b33aa70223acd104880714e0c4ad8233, type: 3}
+  m_PrefabInstance: {fileID: 5627008978938446909}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5304571476109829078 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b33aa70223acd104880714e0c4ad8233, type: 3}
