@@ -14,7 +14,7 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
+  m_Fog: 1
   m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
@@ -794,6 +794,8 @@ GameObject:
   - component: {fileID: 1948308945}
   - component: {fileID: 1948308942}
   - component: {fileID: 1948308944}
+  - component: {fileID: 1948308946}
+  - component: {fileID: 1948308947}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -870,6 +872,32 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 771531701f0346b4dac040269b7a061b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1948308946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948308941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b5bc65697c1574793fdb7919b707a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints: []
+  _currentCheckpoint: 0
+--- !u!114 &1948308947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948308941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bf63e9b3c8195b4bbe5e667eeed36e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2084923847
