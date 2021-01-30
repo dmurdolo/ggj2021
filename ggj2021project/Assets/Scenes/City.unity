@@ -945,7 +945,7 @@ MonoBehaviour:
   GenerateMap: 1
   Level: 1
   levelMaps:
-  - {fileID: 4900000, guid: f7d74c25fd7265d4f9358e413f2ef49b, type: 3}
+  - {fileID: 4900000, guid: a36926f81df030546b1f34318431bab0, type: 3}
   DefaultTile: {fileID: 8815228771601894418, guid: 4221517fb0ae3f64da2a52413354c6fd, type: 3}
   IslandTile: {fileID: 4545655728267330840, guid: 66d8aedbb4c4c6342b8b90175c8f7844, type: 3}
   CheckpointTile: {fileID: 4545655728267330840, guid: 2fdf4229b252a204980ba804b16377e6, type: 3}
