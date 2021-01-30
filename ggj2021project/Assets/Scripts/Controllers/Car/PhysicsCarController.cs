@@ -12,6 +12,9 @@ public class PhysicsCarController : MonoBehaviour
     private float pitch = 4f;
 
     [SerializeField]
+    private Light[] lights;
+
+    [SerializeField]
     private float brakes = 0f;
     [SerializeField]
     private float brakesPower = 500f;
@@ -39,10 +42,14 @@ public class PhysicsCarController : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             brakes = brakesPower;
+            lights[0].GetComponent<Light>().enabled = true;
+            lights[1].GetComponent<Light>().enabled = true;
         }
         else
         {
             brakes = 0f;
+            lights[0].GetComponent<Light>().enabled = false;
+            lights[1].GetComponent<Light>().enabled = false;
         }
 
         foreach (WheelCollider wheel in wheels)
@@ -55,6 +62,7 @@ public class PhysicsCarController : MonoBehaviour
 
             // apply the brakes!
             wheel.brakeTorque = brakes;
+
 
             // update visual wheels if any
             {
