@@ -3,6 +3,16 @@ using UnityEngine.UI;
 
 public class WorldManager : MonoBehaviour
 {
+    public enum Direction
+    {
+        Up,
+        Down,
+        Left,
+        Right,
+        Forward,
+        Back
+    }
+
     public static Vector2Int MapSize = new Vector2Int(100, 100);
     public static Vector2Int TileSize = new Vector2Int(1, 1);
     public static GameObject DebugText;
