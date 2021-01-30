@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 605f8e399ed59c04c927e0926c66b180, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -832,8 +832,6 @@ MonoBehaviour:
   - {fileID: 3606056794803213061, guid: 81d2dd17cc05658459e7b152c7b74733, type: 3}
   BuildingTiles:
   - {fileID: 3702652402410648688, guid: a2d0ef638255e2143be39324ed8614f2, type: 3}
-  - {fileID: 3702652402410648688, guid: 7726c6c904d276a48aefce1c8882832c, type: 3}
-  - {fileID: 3702652402410648688, guid: 893ed97566a176b4bab33cc6eb8b2b89, type: 3}
 --- !u!4 &1948308943
 Transform:
   m_ObjectHideFlags: 0
