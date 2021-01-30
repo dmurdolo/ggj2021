@@ -2,6 +2,7 @@
 
 public class MapManager : MonoBehaviour
 {
+    public bool GenerateMap = true;
     public int Level = 1;
 
     public GameObject GrassTile;
@@ -10,6 +11,7 @@ public class MapManager : MonoBehaviour
     public GameObject[] BuildingTiles;
 
     private GameObject MapParent;
+    private string mapString;
 
     void Start()
     {
@@ -19,17 +21,19 @@ public class MapManager : MonoBehaviour
     {
         MapParent = GameObject.Find("Map");
 
-        string map;
-
         if (Level == 0)
         {
             WorldManager.MapSize = new Vector2Int(25, 25);
-            CreateGrassTown();
+            if (GenerateMap)
+            {
+                CreateGrassTown();
+            }
         }
         else if (Level == 1)
         {
             WorldManager.MapSize = new Vector2Int(25, 25);
-
+            
+            /*
             map =
                "GGGGGGGGGGGGGGGGGGGGGGGGG" +
                "GRRRGGGGHHHGHGHGHGGGGGGGG" +
@@ -60,8 +64,9 @@ public class MapManager : MonoBehaviour
                "GRHRGHGRGHGRRRHGGGGGGRRRG" +
                "GRRRRRRRRRRRGGGGGGGGGGGGG" +
                "GGGGGGGGGGGGGGGGGGGGGGGGG";
+            */
 
-            map =
+            mapString =
                "BBBBBBBBBBBBBBBBBBBBBBBBB" +
                "GRRRRRRRRRRRRRRRRRRRRRRRB" +
                "GRGGRGGGGGGGGGGGGGGGGGGRB" +
@@ -91,9 +96,11 @@ public class MapManager : MonoBehaviour
                "GRGGGGGGGGGGGGGGGGGGGGGRB" +
                "GRRRRRRRRRRRRRRRRRRRRRRRB" +
                "GGGGGGGGGGGGGGGGGGGGGGGGB";
-               
             
-            CreateTown(map);
+            if (GenerateMap)
+            {
+                CreateTown();
+            }
         }
     }
 
@@ -108,7 +115,7 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    private void CreateTown(string map)
+    private void CreateTown()
     {
         // 0 0 0
         // 0 R 0
@@ -118,12 +125,12 @@ public class MapManager : MonoBehaviour
         {
             for (int x = 0; x < WorldManager.MapSize.x; x++)
             {
-                string mapCharacter = GetMapCharacterAt(map, x, y);
+                string mapCharacter = GetMapCharacterAt(mapString, x, y);
 
                 // Road
                 if (mapCharacter == "R")
                 {
-                    string grid = GetRoadGrid(map, x, y);
+                    string grid = GetRoadGrid(x, y);
 
                     // T right
                     if (grid == "1110") WorldManager.CreateTile(MapParent, RoadTiles[0], x, y);
@@ -173,8 +180,8 @@ public class MapManager : MonoBehaviour
         return map.Substring(x + (y * WorldManager.MapSize.x), 1);
     }
 
-    // Returns a string of the NSEW values, e.g. 0000, 0100, etc.
-    private string GetRoadGrid(string map, int x, int y)
+    // Returns a string of the NESW values, e.g. 0000, 0100, etc.
+    public string GetRoadGrid(int x, int y)
     {
         string grid = "";
 
@@ -182,41 +189,41 @@ public class MapManager : MonoBehaviour
 
         // Top left
         if (x == 0 || y == 0) grid += "0";
-        else grid += IsRoad(map, x - 1, y - 1) ? "1" : "0";
+        else grid += IsRoad(mapString, x - 1, y - 1) ? "1" : "0";
 
         // Top middle
         if (y == 0) grid += "0";
-        else grid += IsRoad(map, x, y - 1) ? "1" : "0";
+        else grid += IsRoad(mapString, x, y - 1) ? "1" : "0";
 
         // Top right
         if (x == WorldManager.MapSize.x - 1 || y == 0) grid += "0";
-        else grid += IsRoad(map, x + 1, y - 1) ? "1" : "0";
+        else grid += IsRoad(mapString, x + 1, y - 1) ? "1" : "0";
 
         // --------------------------------------------------------------------
 
         // Left
         if (x == 0) grid += "0";
-        else grid += IsRoad(map, x - 1, y) ? "1" : "0";
+        else grid += IsRoad(mapString, x - 1, y) ? "1" : "0";
 
         grid += "1";
 
         // Right
         if (x == WorldManager.MapSize.x - 1) grid += "0";
-        else grid += IsRoad(map, x + 1, y) ? "1" : "0";
+        else grid += IsRoad(mapString, x + 1, y) ? "1" : "0";
 
         // --------------------------------------------------------------------
 
         // Bottom left
         if (x == 0 || y == WorldManager.MapSize.y - 1) grid += "0";
-        else grid += IsRoad(map, x - 1, y + 1) ? "1" : "0";
+        else grid += IsRoad(mapString, x - 1, y + 1) ? "1" : "0";
 
         // Bottom middle
         if (y == WorldManager.MapSize.y - 1) grid += "0";
-        else grid += IsRoad(map, x, y + 1) ? "1" : "0";
+        else grid += IsRoad(mapString, x, y + 1) ? "1" : "0";
 
         // Bottom right
         if (x == WorldManager.MapSize.x - 1 || y == WorldManager.MapSize.y - 1) grid += "0";
-        else grid += IsRoad(map, x + 1, y + 1) ? "1" : "0";
+        else grid += IsRoad(mapString, x + 1, y + 1) ? "1" : "0";
 
         // --------------------------------------------------------------------
 

@@ -23,7 +23,7 @@ public class TrafficManager : MonoBehaviour
 
     private void PlaceVehicle(int x, int y, int direction)
     {
-        Vector2 worldPosition = WorldManager.GetTilePosition(x, y);
+        Vector2 worldPosition = WorldManager.GetTileWorldPosition(x, y);
         GameObject vehicle = Instantiate(Vehicles[Random.Range(0, Vehicles.Length)]);
         vehicle.transform.parent = VehiclesParent.transform;
         vehicle.transform.eulerAngles = new Vector3(0, direction, 0);
