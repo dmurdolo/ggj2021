@@ -37,7 +37,7 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
+  m_Sun: {fileID: 296154691}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
@@ -813,9 +813,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5018573eff3c0a4eb3167e618ba3892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GenerateMap: 0
+  GenerateMap: 1
   Level: 1
   GrassTile: {fileID: 8815228771601894418, guid: 4221517fb0ae3f64da2a52413354c6fd, type: 3}
+  IslandTile: {fileID: 4545655728267330840, guid: 66d8aedbb4c4c6342b8b90175c8f7844, type: 3}
   RoadTiles:
   - {fileID: 5205322584729385146, guid: 1ded9ee2f1a22a84fa44b4802c0d08f0, type: 3}
   - {fileID: 3606056794803213061, guid: ea9250c6feaf78346a7b7487b2fc155a, type: 3}
@@ -873,63 +874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771531701f0346b4dac040269b7a061b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1001 &2023415161
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 501538025042894761, guid: 6bcd6ad101cf5264380f2d5cc904ddf1, type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 501538025042894761, guid: 6bcd6ad101cf5264380f2d5cc904ddf1, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501538025042894761, guid: 6bcd6ad101cf5264380f2d5cc904ddf1, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501538025042894761, guid: 6bcd6ad101cf5264380f2d5cc904ddf1, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501538025042894761, guid: 6bcd6ad101cf5264380f2d5cc904ddf1, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 501538025042894761, guid: 6bcd6ad101cf5264380f2d5cc904ddf1, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501538025042894761, guid: 6bcd6ad101cf5264380f2d5cc904ddf1, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501538025042894761, guid: 6bcd6ad101cf5264380f2d5cc904ddf1, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501538025042894761, guid: 6bcd6ad101cf5264380f2d5cc904ddf1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501538025042894761, guid: 6bcd6ad101cf5264380f2d5cc904ddf1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501538025042894761, guid: 6bcd6ad101cf5264380f2d5cc904ddf1, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 501538025042894766, guid: 6bcd6ad101cf5264380f2d5cc904ddf1, type: 3}
-      propertyPath: m_Name
-      value: Map - Level 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6bcd6ad101cf5264380f2d5cc904ddf1, type: 3}
 --- !u!1 &2084923847
 GameObject:
   m_ObjectHideFlags: 0

@@ -80,13 +80,15 @@ public class WorldManager : MonoBehaviour
             (worldPosition.z / TileSize.y + (TileSize.y / 2.0f)) + offset.y);
     }
 
-    public static void CreateTile(GameObject parent, GameObject go, int x, int y)
+    public static GameObject CreateTile(GameObject parent, GameObject go, int x, int y)
     {
         Vector2 offset = new Vector2(((MapSize.x - 1) * TileSize.x) / 2.0f, ((MapSize.y - 1) * TileSize.y) / 2.0f);
 
         GameObject tile = Instantiate(go);
         tile.transform.parent = parent.transform;
         tile.transform.position = new Vector3(-x * TileSize.x + offset.x, 0, y * TileSize.y - offset.y);
+
+        return tile;
     }
 
     public static string GetRoadGrid(Vector2Int tilePosition)
