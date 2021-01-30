@@ -36,70 +36,21 @@ public class MapManager : MonoBehaviour
         else if (Level == 1)
         {
             WorldManager.MapSize = new Vector2Int(25, 25);
-            
-            /*
-            map =
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GRRRGGGGHHHGHGHGHGGGGGGGG" +
-               "GRGRHGRRRRRRRRRRRRHGGGGGG" +
-               "GRHRGHRHHRHHRHHRGRRGHGHGG" +
-               "GRGRHGRGGRGGRGGRHGRRRRRRG" +
+            TextAsset levelText = Resources.Load<TextAsset>("Levels/level1");
 
-               "GRHRGHRHHRHHRHHRGGHRHGHRG" +
-               "GRGRHGRGGRGGRGGRHGGRGGGRG" +
-               "GRHRGHRHHRHHRHHRGGHRHGHRG" +
-               "GRGRHGRGGRGGRGGRHGGRGGGRG" +
-               "GRHRGHRHHRHHRHHRGGHRHGHRG" +
+            if (levelText)
+            {
+                string[] rows = levelText.text.Split('\n');
 
-               "GRRRHGRGGRGGRGGRHGGRGGGRG" +
-               "GRHRGGRHHRHHRHHRGGHRHGHRG" +
-               "GRGRRRRRRRRRRRRRRRRRRRRRG" +
-               "GRHRGGGGGRGGGGGRGGGGGGGRG" +
-               "GRGRRRRRRRRRRRRRRRRRRRRRG" +
-
-               "GRHRGHGRGHGRGGGRGGGRGGGRG" +
-               "GRGRHGHRHGHRHGHRGGGRGHRRG" +
-               "GRRRGGGRGGGRGGGRGGGRGGGRG" +
-               "GRHRHGHRHGHRHGHRGGGRGHRRG" +
-               "GRHRGGGRGGGRGGGRGGGRGGGRG" +
-
-               "GRGRHGHRHGHRGHRRGGGRRGGRG" +
-               "GRHRGGGRGGGRGRRGGGGGRRGRG" +
-               "GRHRGHGRGHGRRRHGGGGGGRRRG" +
-               "GRRRRRRRRRRRGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG";
-            */
-
-            mapString =
-               "BBBBBBBBBBBBBBBBBBBBBBBBB" +
-               "GCCCCCCCCCCCCCCCCCCCCCCCB" +
-               "GRRRRRRRRRRRRRRRRRRRRRRRB" +
-               "GRGGRGGRIIIIRGGGGGGGGGPRB" +
-               "GRGGRGGRGGGGRGGGGGGGGGGRB" +
-               
-               "GRRRRRRRGGGGRGGGGGGGGGGRB" +
-               "GRGGRGGRGGGGRGGGGGGGGGGRB" +
-               "GRGGRGGRPGGGRGGGGGGGGGGRB" +
-               "GRRRRRRRGGGGRGGGGGGGGGGRB" +
-               "GRGGGGGGGGGGRGGGGGGGGGGRB" +
-
-               "GRGGGGGGGGGGRGGGGGGGGGGRB" +
-               "GRCCCCCCCCCCRPGGGGGGGGGRB" +
-               "GRRRRRRRRRRRRRRRRRRRRRRRB" +
-               "GRCCCCCCCCCCRCGGGGGGGGGRB" +
-               "GRCGGGGGGGGCRGGGGGGGGGGRB" +
-
-               "GRCGGGGGGGGCRGGGGGGGGGGRB" +
-               "GRCGGGGGGGGCRGGGGGGGGGGRB" +
-               "GRCGGGGGGGGCRGGGGRRRRRRRB" +
-               "GRPGGGGGGGGPRGGGGRGGRGGRB" +
-               "GRCGGGGGGGGCRGGGGRGGRGGRB" +
-
-               "GRCGGGGGGGGCRGGGGRRRRRRRB" +
-               "GRCGGGGGGGGCRGGGGRGGRGGRB" +
-               "GRCCCCCCCCCCRGGGGRGGRGGRB" +
-               "GRRRRRRRRRRRRRRRRRRRRRRRB" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGB";
+                foreach (string row in rows)
+                {
+                    mapString += row;
+                }
+            }
+            else
+            {
+                Debug.LogError("Couldn't load level!");
+            }
             
             if (GenerateMap)
             {
