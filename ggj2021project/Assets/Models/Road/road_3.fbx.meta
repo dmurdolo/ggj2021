@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 661e2b746e6df324d8a0de787497f96d
+guid: 4b67bca99d898dd42a02c3f172f5cfa0
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -13,7 +13,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Ground
-    second: {fileID: 2100000, guid: 7c54fabfbb3b2744090cf8f89690f208, type: 2}
+    second: {fileID: 2100000, guid: 4602cf3cbd5affd4399b659a719c422d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal 1
+    second: {fileID: 2100000, guid: e993c3c21e1d7224998b6f820fa19555, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule

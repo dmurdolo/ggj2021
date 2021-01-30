@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 661e2b746e6df324d8a0de787497f96d
+guid: 3802d56ec1422d44fa42aeb424597ba5
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,13 +7,18 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Emission Pink
-    second: {fileID: 2100000, guid: 3e113df22aaf0454aba9b3dc1a0f6bd1, type: 2}
+      name: Emission Green
+    second: {fileID: 2100000, guid: 252d9ccc98eb3204bade864d2cd50d64, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Ground
-    second: {fileID: 2100000, guid: 7c54fabfbb3b2744090cf8f89690f208, type: 2}
+    second: {fileID: 2100000, guid: 4602cf3cbd5affd4399b659a719c422d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal 1
+    second: {fileID: 2100000, guid: e993c3c21e1d7224998b6f820fa19555, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
