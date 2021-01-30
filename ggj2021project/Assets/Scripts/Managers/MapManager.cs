@@ -5,6 +5,8 @@ public class MapManager : MonoBehaviour
     public bool GenerateMap = true;
     public int Level = 1;
 
+    public TextAsset[] levelMaps;
+
     public GameObject DefaultTile;
     public GameObject IslandTile;
     public GameObject CheckpointTile;
@@ -27,7 +29,7 @@ public class MapManager : MonoBehaviour
 
         if (Level == 0)
         {
-            WorldManager.MapSize = new Vector2Int(25, 25);
+            WorldManager.MapSize = new Vector2Int(40, 40);
             if (GenerateMap)
             {
                 CreateDefaultTown();
@@ -35,8 +37,8 @@ public class MapManager : MonoBehaviour
         }
         else if (Level == 1)
         {
-            WorldManager.MapSize = new Vector2Int(25, 25);
-            TextAsset levelText = Resources.Load<TextAsset>("Levels/level1new");
+            WorldManager.MapSize = new Vector2Int(40, 40);
+            TextAsset levelText = levelMaps[0];
 
             if (levelText)
             {
