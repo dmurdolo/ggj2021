@@ -43,7 +43,7 @@ public class MapManager : MonoBehaviour
                 // Dan's and Bens's computers are behaving differently
                 // Applying both here to be safe
                 mapString = levelText.text.Replace("\r\n", "");   // Ben
-                mapString = levelText.text.Replace("\n", "");     // Dan - TODO Test this
+                mapString = mapString.Replace("\n", "");     // Dan - TODO Test this
             }
             else
             {
