@@ -16,10 +16,10 @@ public class TrafficManager : MonoBehaviour
     {
         VehiclesParent = GameObject.Find("Vehicles");
 
-        PlaceVehicle(1, 2, WorldManager.Direction.Right);
-        PlaceVehicle(23, 2, WorldManager.Direction.Down);
-        PlaceVehicle(23, 23, WorldManager.Direction.Left);
-        PlaceVehicle(1, 23, WorldManager.Direction.Up);
+        //PlaceVehicle(1, 2, WorldManager.Direction.Right);
+        //PlaceVehicle(23, 2, WorldManager.Direction.Down);
+        //PlaceVehicle(23, 23, WorldManager.Direction.Left);
+        //PlaceVehicle(1, 23, WorldManager.Direction.Up);
     }
 
     void Update()

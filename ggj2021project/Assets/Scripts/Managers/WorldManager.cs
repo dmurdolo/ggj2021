@@ -14,7 +14,7 @@ public class WorldManager : MonoBehaviour
     }
 
     public static Vector2Int MapSize = new Vector2Int(100, 100);
-    public static Vector2Int TileSize = new Vector2Int(1, 1);
+    public static Vector2Int TileSize = new Vector2Int(8, 8);
     public static GameObject DebugText;
 
     private static MapManager MapManager;

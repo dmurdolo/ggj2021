@@ -5,7 +5,7 @@ public class MapManager : MonoBehaviour
     public bool GenerateMap = true;
     public int Level = 1;
 
-    public GameObject GrassTile;
+    public GameObject DefaultTile;
     public GameObject IslandTile;
     public GameObject CheckpointTile;
 
@@ -30,7 +30,7 @@ public class MapManager : MonoBehaviour
             WorldManager.MapSize = new Vector2Int(25, 25);
             if (GenerateMap)
             {
-                CreateGrassTown();
+                CreateDefaultTown();
             }
         }
         else if (Level == 1)
@@ -57,13 +57,13 @@ public class MapManager : MonoBehaviour
         }
     }
 
-    private void CreateGrassTown()
+    private void CreateDefaultTown()
     {
         for (int y = 0; y < WorldManager.MapSize.y; y++)
         {
             for (int x = 0; x < WorldManager.MapSize.x; x++)
             {
-                WorldManager.CreateTile(MapParent, GrassTile, x, y);
+                WorldManager.CreateTile(MapParent, DefaultTile, x, y);
             }
         }
     }
@@ -133,7 +133,7 @@ public class MapManager : MonoBehaviour
                 // Building
                 else if (mapCharacter == "B")
                 {
-                    WorldManager.CreateTile(MapParent, GrassTile, x, y);
+                    WorldManager.CreateTile(MapParent, DefaultTile, x, y);
                     WorldManager.CreateTile(MapParent, BuildingTiles[Random.Range(0, BuildingTiles.Length)], x, y);
                 }
 
@@ -146,7 +146,7 @@ public class MapManager : MonoBehaviour
                 // Grass
                 else
                 {
-                    WorldManager.CreateTile(MapParent, GrassTile, x, y);
+                    WorldManager.CreateTile(MapParent, DefaultTile, x, y);
                 }
             }
         }
