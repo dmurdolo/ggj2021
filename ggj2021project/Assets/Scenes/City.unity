@@ -312,6 +312,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &539931271
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 539931272}
+  m_Layer: 0
+  m_Name: Vehicles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &539931272
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 539931271}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &737400958
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,13 +396,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812864819}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1875956921
 GameObject:
   m_ObjectHideFlags: 0
@@ -498,7 +528,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1948308943}
+  - component: {fileID: 1948308945}
   - component: {fileID: 1948308942}
+  - component: {fileID: 1948308944}
   m_Layer: 0
   m_Name: Main
   m_TagString: Untagged
@@ -518,7 +550,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5018573eff3c0a4eb3167e618ba3892, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TileSize: {x: 1, y: 1}
   Level: 1
   MapParent: {fileID: 812864819}
   GrassTile: {fileID: 8815228771601894418, guid: 4221517fb0ae3f64da2a52413354c6fd, type: 3}
@@ -537,6 +568,8 @@ MonoBehaviour:
   - {fileID: 3606056794803213061, guid: 81d2dd17cc05658459e7b152c7b74733, type: 3}
   BuildingTiles:
   - {fileID: 3702652402410648688, guid: a2d0ef638255e2143be39324ed8614f2, type: 3}
+  - {fileID: 3702652402410648688, guid: 7726c6c904d276a48aefce1c8882832c, type: 3}
+  - {fileID: 3702652402410648688, guid: 893ed97566a176b4bab33cc6eb8b2b89, type: 3}
 --- !u!4 &1948308943
 Transform:
   m_ObjectHideFlags: 0
@@ -551,3 +584,29 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1948308944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948308941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c96e108442d28744dabb4fef4bc19c3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Vehicles:
+  - {fileID: 178130, guid: 7adf96d3354a7e04a836cabb3081f591, type: 3}
+--- !u!114 &1948308945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948308941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 771531701f0346b4dac040269b7a061b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

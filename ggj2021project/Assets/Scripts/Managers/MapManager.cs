@@ -1,31 +1,34 @@
 ﻿using UnityEngine;
 
-public class TownManager : MonoBehaviour
+public class MapManager : MonoBehaviour
 {
-    public Vector2Int TileSize = new Vector2Int(1, 1);
-
     public int Level = 1;
 
-    public GameObject MapParent;
     public GameObject GrassTile;
 
     public GameObject[] RoadTiles;
     public GameObject[] BuildingTiles;
-    
-    private Vector2Int TownSize = new Vector2Int(100, 100);
+
+    private GameObject MapParent;
 
     void Start()
     {
+    }
+
+    public void Init()
+    {
+        MapParent = GameObject.Find("Map");
+
         string map;
 
         if (Level == 0)
         {
-            TownSize = new Vector2Int(25, 25);
+            WorldManager.MapSize = new Vector2Int(25, 25);
             CreateGrassTown();
         }
         else if (Level == 1)
         {
-            TownSize = new Vector2Int(25, 25);
+            WorldManager.MapSize = new Vector2Int(25, 25);
 
             map =
                "GGGGGGGGGGGGGGGGGGGGGGGGG" +
@@ -59,35 +62,36 @@ public class TownManager : MonoBehaviour
                "GGGGGGGGGGGGGGGGGGGGGGGGG";
 
             map =
-               "GBBBBGGGGGGGGGGGGGGGGGGGG" +
-               "GRRRRGGGGGGGGGGGGGGGGGGGG" +
-               "GRGGRGGGGGGGGGGGGGGGGGGGG" +
-               "GRGGRGGGGGGGGGGGGGGGGGGGG" +
-               "GRRRRGGGGGGGGGGGGGGGGGGGG" +
+               "BBBBBBBBBBBBBBBBBBBBBBBBB" +
+               "GRRRRRRRRRRRRRRRRRRRRRRRB" +
+               "GRGGRGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGRGGGGGGGGGGGGGGGGGGRB" +
+               "GRRRRGGGGGGGGGGGGGGGGGGRB" +
 
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
 
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
 
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
 
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG" +
-               "GGGGGGGGGGGGGGGGGGGGGGGGG";
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRGGGGGGGGGGGGGGGGGGGGGRB" +
+               "GRRRRRRRRRRRRRRRRRRRRRRRB" +
+               "GGGGGGGGGGGGGGGGGGGGGGGGB";
+               
             
             CreateTown(map);
         }
@@ -95,11 +99,11 @@ public class TownManager : MonoBehaviour
 
     private void CreateGrassTown()
     {
-        for (int y = 0; y < TownSize.y; y++)
+        for (int y = 0; y < WorldManager.MapSize.y; y++)
         {
-            for (int x = 0; x < TownSize.x; x++)
+            for (int x = 0; x < WorldManager.MapSize.x; x++)
             {
-                CreateTile(GrassTile, x, y);
+                WorldManager.CreateTile(MapParent, GrassTile, x, y);
             }
         }
     }
@@ -110,9 +114,9 @@ public class TownManager : MonoBehaviour
         // 0 R 0
         // 0 0 0
 
-        for(int y = 0; y < TownSize.y; y++)
+        for(int y = 0; y < WorldManager.MapSize.y; y++)
         {
-            for (int x = 0; x < TownSize.x; x++)
+            for (int x = 0; x < WorldManager.MapSize.x; x++)
             {
                 string mapCharacter = GetMapCharacterAt(map, x, y);
 
@@ -122,43 +126,43 @@ public class TownManager : MonoBehaviour
                     string grid = GetRoadGrid(map, x, y);
 
                     // T right
-                    if (grid == "1110") CreateTile(RoadTiles[0], x, y);
+                    if (grid == "1110") WorldManager.CreateTile(MapParent, RoadTiles[0], x, y);
                     // T left
-                    else if (grid == "1011") CreateTile(RoadTiles[1], x, y);
+                    else if (grid == "1011") WorldManager.CreateTile(MapParent, RoadTiles[1], x, y);
                     // T down
-                    else if (grid == "0111") CreateTile(RoadTiles[2], x, y);
+                    else if (grid == "0111") WorldManager.CreateTile(MapParent, RoadTiles[2], x, y);
                     // T up
-                    else if (grid == "1101") CreateTile(RoadTiles[3], x, y);
+                    else if (grid == "1101") WorldManager.CreateTile(MapParent, RoadTiles[3], x, y);
 
                     // Cross
-                    else if (grid == "1111") CreateTile(RoadTiles[Random.Range(4, 5)], x, y);   // 2 crosses
+                    else if (grid == "1111") WorldManager.CreateTile(MapParent, RoadTiles[Random.Range(4, 5)], x, y);   // 2 crosses
 
                     // Straight Up
-                    else if (grid == "1010") CreateTile(RoadTiles[6], x, y);
+                    else if (grid == "1010") WorldManager.CreateTile(MapParent, RoadTiles[6], x, y);
                     // Straight Across
-                    else if (grid == "0101") CreateTile(RoadTiles[7], x, y);
+                    else if (grid == "0101") WorldManager.CreateTile(MapParent, RoadTiles[7], x, y);
 
                     // Corner Down Right
-                    else if (grid == "0110") CreateTile(RoadTiles[8], x, y);
+                    else if (grid == "0110") WorldManager.CreateTile(MapParent, RoadTiles[8], x, y);
                     // Corner Down Left
-                    else if (grid == "0011") CreateTile(RoadTiles[9], x, y);
+                    else if (grid == "0011") WorldManager.CreateTile(MapParent, RoadTiles[9], x, y);
                     // Corner Up Right
-                    else if (grid == "1100") CreateTile(RoadTiles[10], x, y);
+                    else if (grid == "1100") WorldManager.CreateTile(MapParent, RoadTiles[10], x, y);
                     // Corner Up Left
-                    else if (grid == "1001") CreateTile(RoadTiles[11], x, y);
+                    else if (grid == "1001") WorldManager.CreateTile(MapParent, RoadTiles[11], x, y);
                 }
                 
                 // Building
                 else if (mapCharacter == "B")
                 {
-                    CreateTile(GrassTile, x, y);
-                    CreateTile(BuildingTiles[Random.Range(0, BuildingTiles.Length)], x, y);
+                    WorldManager.CreateTile(MapParent, GrassTile, x, y);
+                    WorldManager.CreateTile(MapParent, BuildingTiles[Random.Range(0, BuildingTiles.Length)], x, y);
                 }
 
                 // Grass
                 else
                 {
-                    CreateTile(GrassTile, x, y);
+                    WorldManager.CreateTile(MapParent, GrassTile, x, y);
                 }
             }
         }
@@ -166,7 +170,7 @@ public class TownManager : MonoBehaviour
 
     private string GetMapCharacterAt(string map, int x, int y)
     {
-        return map.Substring(x + (y * TownSize.x), 1);
+        return map.Substring(x + (y * WorldManager.MapSize.x), 1);
     }
 
     // Returns a string of the NSEW values, e.g. 0000, 0100, etc.
@@ -185,7 +189,7 @@ public class TownManager : MonoBehaviour
         else grid += IsRoad(map, x, y - 1) ? "1" : "0";
 
         // Top right
-        if (x == TownSize.x - 1 || y == 0) grid += "0";
+        if (x == WorldManager.MapSize.x - 1 || y == 0) grid += "0";
         else grid += IsRoad(map, x + 1, y - 1) ? "1" : "0";
 
         // --------------------------------------------------------------------
@@ -197,21 +201,21 @@ public class TownManager : MonoBehaviour
         grid += "1";
 
         // Right
-        if (x == TownSize.x - 1) grid += "0";
+        if (x == WorldManager.MapSize.x - 1) grid += "0";
         else grid += IsRoad(map, x + 1, y) ? "1" : "0";
 
         // --------------------------------------------------------------------
 
         // Bottom left
-        if (x == 0 || y == TownSize.y - 1) grid += "0";
+        if (x == 0 || y == WorldManager.MapSize.y - 1) grid += "0";
         else grid += IsRoad(map, x - 1, y + 1) ? "1" : "0";
 
         // Bottom middle
-        if (y == TownSize.y - 1) grid += "0";
+        if (y == WorldManager.MapSize.y - 1) grid += "0";
         else grid += IsRoad(map, x, y + 1) ? "1" : "0";
 
         // Bottom right
-        if (x == TownSize.x - 1 || y == TownSize.y - 1) grid += "0";
+        if (x == WorldManager.MapSize.x - 1 || y == WorldManager.MapSize.y - 1) grid += "0";
         else grid += IsRoad(map, x + 1, y + 1) ? "1" : "0";
 
         // --------------------------------------------------------------------
@@ -230,14 +234,5 @@ public class TownManager : MonoBehaviour
     {
         string charAt = GetMapCharacterAt(map, x, y);
         return charAt == "R" || charAt == "H";
-    }
-
-    private void CreateTile(GameObject go, int x, int y)
-    {
-        Vector2 offset = new Vector2(((TownSize.x - 1) * TileSize.x) / 2.0f, ((TownSize.y - 1) * TileSize.y) / 2.0f);
-
-        GameObject tile = Instantiate(go);
-        tile.transform.parent = MapParent.transform;
-        tile.transform.position = new Vector3(-x * TileSize.x + offset.x, 0, y * TileSize.y - offset.y);
     }
 }
