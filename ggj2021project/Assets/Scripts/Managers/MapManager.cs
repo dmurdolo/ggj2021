@@ -94,7 +94,7 @@ public class MapManager : MonoBehaviour
                     // Cross
                     else if (grid == "1111") WorldManager.CreateTile(MapParent, RoadTiles[6], x, y); // 2 crosses
                     // T right
-                    if (grid == "1110") WorldManager.CreateTile(MapParent, RoadTiles[7], x, y);
+                    else if (grid == "1110") WorldManager.CreateTile(MapParent, RoadTiles[7], x, y);
                     // T left
                     else if (grid == "1011") WorldManager.CreateTile(MapParent, RoadTiles[8], x, y);
                     // T down
@@ -113,42 +113,42 @@ public class MapManager : MonoBehaviour
 
                 // Curb
                 else if (mapCharacter == "C")
-                    {
-                        string grid = GetRoadGrid(x, y);
+                {
+                    string grid = GetRoadGrid(x, y);
 
-                        if (grid == "0010") WorldManager.CreateTile(MapParent, CurbTiles[0], x, y);
-                        else if (grid == "0001") WorldManager.CreateTile(MapParent, CurbTiles[1], x, y);
-                        else if (grid == "1000") WorldManager.CreateTile(MapParent, CurbTiles[2], x, y);
-                        else if (grid == "0100") WorldManager.CreateTile(MapParent, CurbTiles[3], x, y);
-                        else WorldManager.CreateTile(MapParent, CurbTiles[0], x, y);
-                    }
+                    if (grid == "0010") WorldManager.CreateTile(MapParent, CurbTiles[0], x, y);
+                    else if (grid == "0001") WorldManager.CreateTile(MapParent, CurbTiles[1], x, y);
+                    else if (grid == "1000") WorldManager.CreateTile(MapParent, CurbTiles[2], x, y);
+                    else if (grid == "0100") WorldManager.CreateTile(MapParent, CurbTiles[3], x, y);
+                    else WorldManager.CreateTile(MapParent, CurbTiles[0], x, y);
+                }
 
-                    // Island
-                    else if (mapCharacter == "I")
-                    {
-                        GameObject island = WorldManager.CreateTile(MapParent, IslandTile, x, y);
-                        island.GetComponent<Island>().Offset = IslandOffset;
-                        IslandOffset += 1.0f;
-                    }
+                // Island
+                else if (mapCharacter == "I")
+                {
+                    GameObject island = WorldManager.CreateTile(MapParent, IslandTile, x, y);
+                    island.GetComponent<Island>().Offset = IslandOffset;
+                    IslandOffset += 1.0f;
+                }
 
-                    // Building
-                    else if (mapCharacter == "B")
-                    {
-                        WorldManager.CreateTile(MapParent, GrassTile, x, y);
-                        WorldManager.CreateTile(MapParent, BuildingTiles[Random.Range(0, BuildingTiles.Length)], x, y);
-                    }
+                // Building
+                else if (mapCharacter == "B")
+                {
+                    WorldManager.CreateTile(MapParent, GrassTile, x, y);
+                    WorldManager.CreateTile(MapParent, BuildingTiles[Random.Range(0, BuildingTiles.Length)], x, y);
+                }
 
-                    // Checkpoint
-                    else if (mapCharacter == "P")
-                    {
-                        GameObject checkpoint = WorldManager.CreateTile(MapParent, CheckpointTile, x, y);
-                    }
+                // Checkpoint
+                else if (mapCharacter == "P")
+                {
+                    GameObject checkpoint = WorldManager.CreateTile(MapParent, CheckpointTile, x, y);
+                }
 
-                    // Grass
-                    else
-                    {
-                        WorldManager.CreateTile(MapParent, GrassTile, x, y);
-                    }
+                // Grass
+                else
+                {
+                    WorldManager.CreateTile(MapParent, GrassTile, x, y);
+                }
             }
         }
     }
