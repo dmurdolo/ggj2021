@@ -40,12 +40,10 @@ public class MapManager : MonoBehaviour
 
             if (levelText)
             {
-                string[] rows = levelText.text.Split('\n');
-
-                foreach (string row in rows)
-                {
-                    mapString += row;
-                }
+                // Dan's and Bens's computers are behaving differently
+                // Applying both here to be safe
+                mapString = levelText.text.Replace("\r\n", "");   // Ben
+                mapString = levelText.text.Replace("\n", "");     // Dan - TODO Test this
             }
             else
             {
