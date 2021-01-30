@@ -46,6 +46,9 @@ public class MapManager : MonoBehaviour
                 {
                     mapString += row;
                 }
+
+                mapString = levelText.text.Replace("\r\n", "");
+                mapString = levelText.text.Replace("\n", "");
             }
             else
             {
