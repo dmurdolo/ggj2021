@@ -8,6 +8,7 @@ public class MapManager : MonoBehaviour
     public GameObject GrassTile;
     public GameObject IslandTile;
 
+    public GameObject[] CurbTiles;
     public GameObject[] RoadTiles;
     public GameObject[] BuildingTiles;
 
@@ -70,32 +71,32 @@ public class MapManager : MonoBehaviour
 
             mapString =
                "BBBBBBBBBBBBBBBBBBBBBBBBB" +
+               "GCCCCCCCCCCCCCCCCCCCCCCCB" +
                "GRRRRRRRRRRRRRRRRRRRRRRRB" +
                "GRGGRGGRIIIIRGGGGGGGGGGRB" +
                "GRGGRGGRGGGGRGGGGGGGGGGRB" +
+               
                "GRRRRRRRGGGGRGGGGGGGGGGRB" +
-
                "GRGGRGGRGGGGRGGGGGGGGGGRB" +
                "GRGGRGGRGGGGRGGGGGGGGGGRB" +
                "GRRRRRRRGGGGRGGGGGGGGGGRB" +
                "GRGGGGGGGGGGRGGGGGGGGGGRB" +
-               "GRGGGGGGGGGGRGGGGGGGGGGRB" +
 
                "GRGGGGGGGGGGRGGGGGGGGGGRB" +
-               "GRGGGGGGGGGGRGGGGGGGGGGRB" +
+               "GRCCCCCCCCCCRGGGGGGGGGGRB" +
                "GRRRRRRRRRRRRRRRRRRRRRRRB" +
-               "GRGGGGGGGGGGRGGGGGGGGGGRB" +
-               "GRGGGGGGGGGGRGGGGGGGGGGRB" +
+               "GRCCCCCCCCCCRGGGGGGGGGGRB" +
+               "GRCGGGGGGGGCRGGGGGGGGGGRB" +
 
-               "GRGGGGGGGGGGRGGGGGGGGGGRB" +
-               "GRGGGGGGGGGGRGGGGGGGGGGRB" +
-               "GRGGGGGGGGGGRGGGGRRRRRRRB" +
-               "GRGGGGGGGGGGRGGGGRGGRGGRB" +
-               "GRGGGGGGGGGGRGGGGRGGRGGRB" +
+               "GRCGGGGGGGGCRGGGGGGGGGGRB" +
+               "GRCGGGGGGGGCRGGGGGGGGGGRB" +
+               "GRCGGGGGGGGCRGGGGRRRRRRRB" +
+               "GRCGGGGGGGGCRGGGGRGGRGGRB" +
+               "GRCGGGGGGGGCRGGGGRGGRGGRB" +
 
-               "GRGGGGGGGGGGRGGGGRRRRRRRB" +
-               "GRGGGGGGGGGGRGGGGRGGRGGRB" +
-               "GRGGGGGGGGGGRGGGGRGGRGGRB" +
+               "GRCGGGGGGGGCRGGGGRRRRRRRB" +
+               "GRCGGGGGGGGCRGGGGRGGRGGRB" +
+               "GRCCCCCCCCCCRGGGGRGGRGGRB" +
                "GRRRRRRRRRRRRRRRRRRRRRRRB" +
                "GGGGGGGGGGGGGGGGGGGGGGGGB";
             
@@ -159,6 +160,18 @@ public class MapManager : MonoBehaviour
                     else if (grid == "1100") WorldManager.CreateTile(MapParent, RoadTiles[10], x, y);
                     // Corner Up Left
                     else if (grid == "1001") WorldManager.CreateTile(MapParent, RoadTiles[11], x, y);
+                }
+
+                // Curb
+                else if (mapCharacter == "C")
+                {
+                    string grid = GetRoadGrid(x, y);
+
+                    if (grid == "0010") WorldManager.CreateTile(MapParent, CurbTiles[0], x, y);
+                    else if (grid == "0001") WorldManager.CreateTile(MapParent, CurbTiles[1], x, y);
+                    else if (grid == "1000") WorldManager.CreateTile(MapParent, CurbTiles[2], x, y);
+                    else if (grid == "0100") WorldManager.CreateTile(MapParent, CurbTiles[3], x, y);
+                    else WorldManager.CreateTile(MapParent, CurbTiles[0], x, y);
                 }
 
                 // Island
