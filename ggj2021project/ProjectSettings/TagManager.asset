@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Checkpoint
   - Wheel
+  - Ghost
   layers:
   - Default
   - TransparentFX
