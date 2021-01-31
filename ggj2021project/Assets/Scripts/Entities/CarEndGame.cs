@@ -15,9 +15,13 @@ public class CarEndGame : MonoBehaviour
         transform.Translate(Vector3.forward * Time.deltaTime * _speed);
     }
 
-    public void StartEngine(float speed)
+    private void OnTriggerEnter(Collider other)
     {
-        _speed = speed;
+        if (other.tag == "Player")
+        {
+            _speed = 15f;
+            GetComponent<BoxCollider>().enabled = false;
+        }
     }
 
 }

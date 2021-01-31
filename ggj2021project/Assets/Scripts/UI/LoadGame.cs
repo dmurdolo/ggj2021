@@ -4,8 +4,24 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadGame : MonoBehaviour
-{    public void LoadGameLevel()
+{
+    // Start is called before the first frame update
+    void Start()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(LoadGameLevel());
+    }
+
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(2);
+        }
+    }
+
+    IEnumerator LoadGameLevel()
+    {
+        yield return new WaitForSeconds(26f);
+        SceneManager.LoadScene(2);
     }
 }

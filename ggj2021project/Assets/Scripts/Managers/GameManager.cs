@@ -19,6 +19,12 @@ public class GameManager : MonoBehaviour
     private GameObject _playerVehicle;
     [SerializeField]
     private GameObject _dashboard;
+    [SerializeField]
+    private GameObject _credits;
+    [SerializeField]
+    private GameObject _music;
+    [SerializeField]
+    private AudioClip outro;
 
     // Start is called before the first frame update
     void Start()
@@ -54,13 +60,13 @@ public class GameManager : MonoBehaviour
     
     public void EnableAutoDrive()
     {
-        _endFatherVehicle.GetComponent<CarEndGame>().StartEngine(15f);
-
         _playerVehicle.GetComponent<PhysicsCarController>().enabled = false;
         _playerVehicle.GetComponent<PhysicsCarControllerEndGame>().enabled = true;
         _playerVehicle.transform.Find("Trail_Left").gameObject.SetActive(false);
         _playerVehicle.transform.Find("Trail_Right").gameObject.SetActive(false);
-        _dashboard.SetActive(false);
+
+        _music.GetComponent<AudioSource>().clip = outro;
+        _music.GetComponent<AudioSource>().Play();
     }
 
     IEnumerator StartEndGame()
@@ -68,7 +74,6 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         _endGameArea.SetActive(true);
-        _endFatherVehicle.GetComponent<CarEndGame>().enabled = false;
         _fatherVehicle.SetActive(false);
         _endFatherVehicle.SetActive(true);
 
@@ -76,5 +81,13 @@ public class GameManager : MonoBehaviour
         {
             obj.SetActive(false);
         }
+
+        yield return new WaitForSeconds(6f);
+
+        _dashboard.SetActive(false);
+
+        yield return new WaitForSeconds(8f);
+
+        _credits.SetActive(true);
     }
 }

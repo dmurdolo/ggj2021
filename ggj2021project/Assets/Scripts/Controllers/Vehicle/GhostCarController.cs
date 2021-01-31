@@ -84,7 +84,7 @@ public class GhostCarController : MonoBehaviour
     {
         while (keepMoving)
         {
-            yield return new WaitForSeconds(firstCheckpoint ? 0f : 4f);
+            yield return new WaitForSeconds(firstCheckpoint ? 0f : 5f);
 
             currentWorldDestination = checkpointManager.Checkpoints.Length > 0 ? checkpointManager.GetCurrentCheckpointPosition() : transform.position;
             agent.SetDestination(currentWorldDestination);
@@ -97,7 +97,7 @@ public class GhostCarController : MonoBehaviour
     { 
         while (true)
         {   
-            int rnd1 = Random.Range(2, 5);
+            int rnd1 = Random.Range(3, 6);
 
             yield return new WaitForSeconds(rnd1);
 
