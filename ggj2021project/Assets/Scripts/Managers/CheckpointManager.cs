@@ -7,12 +7,16 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField]
     private int _currentCheckpoint = 0;
 
+    private GameObject _dashboard;
     private DestinationDisplayManager _destinationDisplayManager;
     private NarrativeManager _narrativeManager;
     private CheckpointCounterManager _checkpointCounterManager;
 
     void Start()
     {
+        // Dashboard
+        _dashboard = GameObject.Find("Dashboard");
+
         // Destination display
         _destinationDisplayManager = GetComponent<DestinationDisplayManager>();
         if (!_destinationDisplayManager)
@@ -81,6 +85,13 @@ public class CheckpointManager : MonoBehaviour
 
     public void UpdateUI()
     {
+        // Play chord audio attached to the Checkpoint
+        AudioSource audio = _dashboard.GetComponent<AudioSource>();
+        if (audio)
+        {
+            audio.Play();
+        }
+
         _destinationDisplayManager.SetCheckpoint(_currentCheckpoint);
         _narrativeManager.DisplayCheckpointNarrative(_currentCheckpoint);
         _checkpointCounterManager.SetCheckpoint(_currentCheckpoint);
