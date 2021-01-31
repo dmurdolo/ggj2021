@@ -7,7 +7,7 @@ public class CheckpointManager : MonoBehaviour
     public GameObject[] Checkpoints;
 
     [SerializeField]
-    private int _currentCheckpoint;
+    private int _currentCheckpoint = 0;
 
     private NarrativeManager _narrativeManager;
 
@@ -44,12 +44,7 @@ public class CheckpointManager : MonoBehaviour
 
     public Vector3 GetCurrentCheckpointPosition()
     {
-        if (Checkpoints.Length > 0)
-        {
-            return Checkpoints[_currentCheckpoint].transform.position;
-        }
-
-        return new Vector3(0, 0, 0);
+        return Checkpoints != null && Checkpoints.Length > 0 ? Checkpoints[_currentCheckpoint].transform.position : new Vector3(0, 0, 0);
     }
 
     public bool IsCheckpointComplete()
@@ -59,7 +54,7 @@ public class CheckpointManager : MonoBehaviour
 
     public void SetNextCheckpointActive()
     {
-        if (_currentCheckpoint < Checkpoints.Length)
+        if (_currentCheckpoint < Checkpoints.Length-1)
         {
             Debug.Log("Player was at checkpoint " + _currentCheckpoint);
             Checkpoints[_currentCheckpoint].GetComponent<Checkpoint>().CompleteCheckpoint();

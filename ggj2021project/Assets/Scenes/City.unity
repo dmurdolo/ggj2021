@@ -794,6 +794,7 @@ GameObject:
   - component: {fileID: 1948308945}
   - component: {fileID: 1948308942}
   - component: {fileID: 1948308944}
+  - component: {fileID: 1948308946}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -824,6 +825,8 @@ MonoBehaviour:
   - {fileID: 1647821604449236003, guid: 77d157728f933b145a153e3e83fcabe9, type: 3}
   - {fileID: 1647821604449236003, guid: afea965afc2165b43b98bc436916d9db, type: 3}
   - {fileID: 1647821604449236003, guid: 5f1cc7cc302c09c469df1cca5d585173, type: 3}
+  - {fileID: 1647821604449236003, guid: d3a125c597d5aee4789187baf765233b, type: 3}
+  - {fileID: 1647821604449236003, guid: d3a125c597d5aee4789187baf765233b, type: 3}
   CurbTiles:
   - {fileID: 4272453547262947806, guid: 88d0b786b39c0534aa3c09dfa3f37f7f, type: 3}
   - {fileID: 4272453547262947806, guid: ba111154d3e2bea4d84205c8bcde054b, type: 3}
@@ -902,6 +905,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 771531701f0346b4dac040269b7a061b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1948308946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948308941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98b5bc65697c1574793fdb7919b707a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Checkpoints: []
+  _currentCheckpoint: 0
 --- !u!1001 &4160073569113665359
 PrefabInstance:
   m_ObjectHideFlags: 0

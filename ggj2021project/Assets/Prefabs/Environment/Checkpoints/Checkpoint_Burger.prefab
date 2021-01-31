@@ -578,6 +578,7 @@ GameObject:
   - component: {fileID: 2855638727249086871}
   - component: {fileID: 6117145386628182989}
   - component: {fileID: -3103702387904128619}
+  - component: {fileID: 7854677792052072555}
   m_Layer: 0
   m_Name: Building Segment.003
   m_TagString: Untagged
@@ -649,6 +650,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7854677792052072555
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485458252780656570}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.5, y: 22.45, z: 8.5}
+  m_Center: {x: 0, y: 10.2, z: 0}
 --- !u!1 &1647821604449236003
 GameObject:
   m_ObjectHideFlags: 0
@@ -658,9 +672,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3410814478760661955}
+  - component: {fileID: 7060659914812997764}
+  - component: {fileID: 1345687653367868719}
   m_Layer: 0
   m_Name: Checkpoint_Burger
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -692,6 +708,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!65 &7060659914812997764
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647821604449236003}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 22.45, z: 20}
+  m_Center: {x: 0, y: 10.2, z: 0}
+--- !u!114 &1345687653367868719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647821604449236003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74142ad97cd2d7646acb69124c8da98a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isComplete: 0
 --- !u!1 &7439367086699601228
 GameObject:
   m_ObjectHideFlags: 0

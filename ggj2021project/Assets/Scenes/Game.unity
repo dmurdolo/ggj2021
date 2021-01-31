@@ -499,14 +499,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 673724237202764767, guid: c3460708f6c4d7941805a81426c526de, type: 3}
-      propertyPath: m_Speed
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 673724237202764767, guid: c3460708f6c4d7941805a81426c526de, type: 3}
-      propertyPath: avoidancePriority
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3707395622846209751, guid: c3460708f6c4d7941805a81426c526de, type: 3}
       propertyPath: m_Name
       value: FatherVehicle

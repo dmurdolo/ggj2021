@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: -1450832511997707469}
   - component: {fileID: 5271800923636643621}
   - component: {fileID: 673724237202764767}
-  - component: {fileID: 3336841304766291345}
   m_Layer: 0
   m_Name: FatherVehicle
   m_TagString: Ghost
@@ -128,9 +127,9 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: -1372625422
   m_Radius: 3
-  m_Speed: 12
+  m_Speed: 14
   m_Acceleration: 14
-  avoidancePriority: 50
+  avoidancePriority: 1
   m_AngularSpeed: 120
   m_StoppingDistance: 1
   m_AutoTraverseOffMeshLink: 1
@@ -140,19 +139,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &3336841304766291345
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3707395622846209751}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 356d270a0d438c048ab9d1364b3242ca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  DebugText: 
 --- !u!1 &4396167559585662807
 GameObject:
   m_ObjectHideFlags: 0

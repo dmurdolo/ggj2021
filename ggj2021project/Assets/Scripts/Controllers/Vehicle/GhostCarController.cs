@@ -13,7 +13,12 @@ public class GhostCarController : MonoBehaviour
     private Vector2Int currentTileDestination = Vector2Int.zero;
     private Vector3 currentWorldDestination = Vector3.zero;
 
-    private bool goneToNextScenario = false;
+    [SerializeField]
+    private bool keepMoving = true;
+    [SerializeField]
+    private bool notAtCheckpoint = true;
+    [SerializeField]
+    private bool firstCheckpoint = true;
 
     // Start is called before the first frame update
     void Start()
@@ -21,7 +26,8 @@ public class GhostCarController : MonoBehaviour
         checkpointManager = GameObject.Find("Managers").GetComponent<CheckpointManager>();
         agent = GetComponent<NavMeshAgent>();
 
-        SetNewDestination();
+        StartCoroutine(SetNewDestination());
+        StartCoroutine(RandomlyDisappear());
     }
 
     // Update is called once per frame
@@ -33,29 +39,18 @@ public class GhostCarController : MonoBehaviour
             GameObject[] wheels = GameObject.FindGameObjectsWithTag("Wheel");
             MeshRenderer car = transform.GetComponent<MeshRenderer>();
 
-            StopCoroutine(RandomlyDisappearCoroutine());
+            firstCheckpoint = false;
+            notAtCheckpoint = false;
 
             car.enabled = true;
             ToggleWheels(wheels, true);
             trail.emitting = false;
-
-            if (checkpointManager.GetCurrentCheckpoint() < checkpointManager.Checkpoints.Length)
-            {
-                SetNewDestination();
-            }
-            //StartCoroutine(GoToNextScenario());
         }
-    }
 
-    private void SetNewDestination()
-    {
-        currentWorldDestination = checkpointManager.GetCurrentCheckpointPosition();
-        agent.SetDestination(currentWorldDestination);
-
-        //StopCoroutine(GoToNextScenario());
-        StartCoroutine(RandomlyDisappearCoroutine());
-
-        DebugText = "Destination: " + currentWorldDestination;
+        //if (checkpointManager.GetCurrentCheckpoint() >= checkpointManager.Checkpoints.Length)
+        //{
+        //    StopAllCoroutines();
+        //}
     }
 
     private bool HasReachedDestination()
@@ -81,15 +76,32 @@ public class GhostCarController : MonoBehaviour
         }
     }
 
-    IEnumerator RandomlyDisappearCoroutine()
+    IEnumerator SetNewDestination()
+    {
+        Debug.Log("GO!");
+
+        while(keepMoving)
+        {
+            yield return new WaitForSeconds(firstCheckpoint ? 0f : 4f);
+
+            notAtCheckpoint = true;
+
+            currentWorldDestination = checkpointManager.Checkpoints.Length > 0 ? checkpointManager.GetCurrentCheckpointPosition() : transform.position;
+            agent.SetDestination(currentWorldDestination);
+
+            DebugText = "Destination: " + currentWorldDestination;
+        }
+}
+
+    IEnumerator RandomlyDisappear()
     {
         TrailRenderer trail = transform.Find("Trail").GetComponent<TrailRenderer>();
         GameObject[] wheels = GameObject.FindGameObjectsWithTag("Wheel");
         MeshRenderer car = transform.GetComponent<MeshRenderer>();
 
-        while (true)
+        while (notAtCheckpoint)
         {
-            int rnd1 = Random.Range(0, 5);
+            int rnd1 = Random.Range(3, 9);
 
             yield return new WaitForSeconds(rnd1);
 
@@ -97,7 +109,7 @@ public class GhostCarController : MonoBehaviour
             car.enabled = false;
             trail.emitting = true;
 
-            int rnd2 = Random.Range(0, 5);
+            int rnd2 = Random.Range(2, 7);
 
             yield return new WaitForSeconds(rnd2);
 
@@ -107,27 +119,19 @@ public class GhostCarController : MonoBehaviour
         }
     }
 
-    IEnumerator GoToNextScenario()
-    {
-        if (goneToNextScenario)
-            yield break;
-
-        goneToNextScenario = true;
-
-        yield return new WaitForSeconds(10f);
-        SetNewDestination();
-    }
-
     private void OnCollisionEnter(Collision collision)
     {
+        Collider theirs = collision.gameObject.GetComponent<Collider>();
+        Collider mine = GetComponent<Collider>();
+
         if (collision.gameObject.tag == "Player")
         {
-            Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider);
+            Physics.IgnoreCollision(theirs, mine);
         }
 
         if (collision.gameObject.tag == "Vehicle")
         {
-            Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider);
+            Physics.IgnoreCollision(theirs, mine);
         }
     }
 }

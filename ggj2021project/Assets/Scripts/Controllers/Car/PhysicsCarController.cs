@@ -104,9 +104,12 @@ public class PhysicsCarController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Collider theirs = collision.gameObject.GetComponent<Collider>();
+        Collider mine = GetComponent<Collider>();
+
         if (collision.gameObject.tag == "Vehicle")
         {
-            Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider);
+            Physics.IgnoreCollision(theirs, mine);
         }
     }
 }

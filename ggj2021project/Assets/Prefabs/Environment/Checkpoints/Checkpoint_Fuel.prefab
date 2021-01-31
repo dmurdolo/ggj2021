@@ -414,9 +414,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3410814478760661955}
+  - component: {fileID: 1804259588714502654}
+  - component: {fileID: 4239484695927969309}
   m_Layer: 0
   m_Name: Checkpoint_Fuel
-  m_TagString: Untagged
+  m_TagString: Checkpoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -428,7 +430,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1647821604449236003}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -443,7 +445,33 @@ Transform:
   - {fileID: 3957248733365028752}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!65 &1804259588714502654
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647821604449236003}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 20, y: 12, z: 20}
+  m_Center: {x: 0, y: 5, z: 0}
+--- !u!114 &4239484695927969309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1647821604449236003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74142ad97cd2d7646acb69124c8da98a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isComplete: 0
 --- !u!1 &2725337755230610859
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,6 +726,7 @@ GameObject:
   - component: {fileID: 3319230919943289862}
   - component: {fileID: 7808080610823828325}
   - component: {fileID: 8701164229235899706}
+  - component: {fileID: 6827548244404146168}
   m_Layer: 0
   m_Name: Building Segment.001
   m_TagString: Untagged
@@ -770,6 +799,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6827548244404146168
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6493523058230932971}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.5, y: 12, z: 8.5}
+  m_Center: {x: 0, y: 5, z: 0}
 --- !u!1 &6972403430118580280
 GameObject:
   m_ObjectHideFlags: 0
