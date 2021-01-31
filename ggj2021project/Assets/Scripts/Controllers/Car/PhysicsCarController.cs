@@ -53,6 +53,8 @@ public class PhysicsCarController : MonoBehaviour
             EnableBrakeLights(false);
         }
 
+        int current = 0;
+
         foreach (WheelCollider wheel in wheels)
         {
             // a simple car where front wheels steer while rear ones drive
@@ -71,10 +73,12 @@ public class PhysicsCarController : MonoBehaviour
                 wheel.GetWorldPose(out p, out q);
 
                 // assume that the only child of the wheelcollider is the wheel shape
-                Transform shapeTransform = visualCar.Find(wheel.name);
-                shapeTransform.position = p;
+                Transform shapeTransform = visualCar.Find("Wheel_" + wheel.name);
+                //shapeTransform.position = p;
                 shapeTransform.rotation = q;
             }
+
+            current++;
         }
 
         // CURRENT SPEED
