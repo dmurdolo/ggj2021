@@ -1,11 +1,7 @@
 # Global Game Jam 2021 - Night Drive
-
-by Super Ridiculous
-
-
+by Cyber Ridiculous
 
 https://globalgamejam.org/2021/games/night-ride-8
-
 
 
 ## TECH
@@ -16,8 +12,8 @@ https://globalgamejam.org/2021/games/night-ride-8
 
 ## BUGS
 
-* 
+* None that we know of
 
 ## Features to add
 
-* 
+* TBD
