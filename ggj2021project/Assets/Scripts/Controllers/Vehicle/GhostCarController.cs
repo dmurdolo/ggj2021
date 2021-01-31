@@ -39,8 +39,8 @@ public class GhostCarController : MonoBehaviour
             ToggleWheels(wheels, true);
             trail.emitting = false;
 
-
-            StartCoroutine(GoToNextScenario());
+            SetNewDestination();
+            //StartCoroutine(GoToNextScenario());
         }
     }
 
@@ -49,7 +49,7 @@ public class GhostCarController : MonoBehaviour
         currentWorldDestination = checkpointManager.GetCurrentCheckpointPosition();
         agent.SetDestination(currentWorldDestination);
 
-        StopCoroutine(GoToNextScenario());
+        //StopCoroutine(GoToNextScenario());
         StartCoroutine(RandomlyDisappearCoroutine());
 
         DebugText = "Destination: " + currentWorldDestination;
@@ -113,5 +113,13 @@ public class GhostCarController : MonoBehaviour
 
         yield return new WaitForSeconds(10f);
         SetNewDestination();
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider);
+        }
     }
 }
