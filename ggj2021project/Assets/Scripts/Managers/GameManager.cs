@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class GameManager : MonoBehaviour
     private GameObject _endFatherVehicle;
     [SerializeField]
     private GameObject _playerVehicle;
+    [SerializeField]
+    private GameObject _dashboard;
 
     // Start is called before the first frame update
     void Start()
@@ -40,21 +43,29 @@ public class GameManager : MonoBehaviour
         if (checkpointManager.IsCheckpointComplete(5))
         {
             StartCoroutine(StartEndGame());
-        }        
+        }       
+        
+        // Go back to start menu
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
     
     public void EnableAutoDrive()
     {
+        _endFatherVehicle.GetComponent<CarEndGame>().StartEngine(15f);
+
         _playerVehicle.GetComponent<PhysicsCarController>().enabled = false;
         _playerVehicle.GetComponent<PhysicsCarControllerEndGame>().enabled = true;
         _playerVehicle.transform.Find("Trail_Left").gameObject.SetActive(false);
         _playerVehicle.transform.Find("Trail_Right").gameObject.SetActive(false);
-        _endFatherVehicle.GetComponent<CarEndGame>().enabled = true;
+        _dashboard.SetActive(false);
     }
 
     IEnumerator StartEndGame()
     {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1.5f);
 
         _endGameArea.SetActive(true);
         _endFatherVehicle.GetComponent<CarEndGame>().enabled = false;

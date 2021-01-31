@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class CarEndGame : MonoBehaviour
 {
-    public float Speed = 1.0f;
+    [SerializeField]
+    private float _speed;
 
     // Start is called before the first frame update
     void Start()
@@ -11,6 +12,12 @@ public class CarEndGame : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * Speed);
+        transform.Translate(Vector3.forward * Time.deltaTime * _speed);
     }
+
+    public void StartEngine(float speed)
+    {
+        _speed = speed;
+    }
+
 }

@@ -100,11 +100,9 @@ public class GhostCarController : MonoBehaviour
 
     IEnumerator RandomlyDisappear()
     { 
-        while (notAtCheckpoint)
+        while (true)
         {   
-            Debug.Log(notAtCheckpoint);
-
-            int rnd1 = Random.Range(2, 6);
+            int rnd1 = Random.Range(2, 5);
 
             yield return new WaitForSeconds(rnd1);
 
@@ -112,7 +110,7 @@ public class GhostCarController : MonoBehaviour
             car.enabled = false;
             trail.emitting = true;
 
-            int rnd2 = Random.Range(2, 6);
+            int rnd2 = Random.Range(3, 8);
 
             yield return new WaitForSeconds(rnd2);
 

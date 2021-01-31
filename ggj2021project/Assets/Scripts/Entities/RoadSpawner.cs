@@ -26,7 +26,7 @@ public class RoadSpawner : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            GameObject road = Instantiate(RoadPrefab, transform.position + new Vector3(10f, 0f, 0f), Quaternion.identity);
+            GameObject road = Instantiate(RoadPrefab, transform.position + new Vector3(150f, 0f, 0f), Quaternion.identity);
             road.transform.parent = _endGameObject.transform;
 
             Destroy(_currentPiece, 10f);
