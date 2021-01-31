@@ -13,7 +13,7 @@ public class VehicleController : MonoBehaviour
 
     void Start()
     {
-        mapManager = GameObject.Find("Main").GetComponent<MapManager>();
+        mapManager = GameObject.Find("Managers").GetComponent<MapManager>();
         agent = GetComponent<NavMeshAgent>();
 
         SetNewDestination();

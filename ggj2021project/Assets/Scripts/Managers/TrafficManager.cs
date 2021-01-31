@@ -6,7 +6,9 @@ public class TrafficManager : MonoBehaviour
     // Assume left hand side of the road
 
     public GameObject[] Vehicles;
+    public int NumVehiclesToSpawn = 4;
 
+    private MapManager mapManager;
     private GameObject VehiclesParent;
 
     void Start()
@@ -15,19 +17,21 @@ public class TrafficManager : MonoBehaviour
 
     public void Init()
     {
+        mapManager = GameObject.Find("Managers").GetComponent<MapManager>();
+
         VehiclesParent = GameObject.Find("Vehicles");
 
-       //GetRandomRoadTilePosition();
+        for (int i = 0; i < NumVehiclesToSpawn; i++)
+        {
+            PlaceVehicle(mapManager.GetRandomRoadTile(), (WorldManager.Direction)Random.Range(0, 3));
+        }
 
-        PlaceVehicle(4, 4, WorldManager.Direction.Right);
-
-        //PlaceVehicle(23, 2, WorldManager.Direction.Down);
-        //PlaceVehicle(23, 23, WorldManager.Direction.Left);
-        //PlaceVehicle(1, 23, WorldManager.Direction.Up);
+        //PlaceVehicle(4, 4, WorldManager.Direction.Right);
     }
 
-    void Update()
+    private void PlaceVehicle(Vector2Int tilePosition, WorldManager.Direction direction)
     {
+        PlaceVehicle(tilePosition.x, tilePosition.y, direction);
     }
 
     private void PlaceVehicle(int x, int y, WorldManager.Direction direction)
@@ -52,7 +56,6 @@ public class TrafficManager : MonoBehaviour
             
             case WorldManager.Direction.Right:
                 yAngle = 270;
-                //yOffset = -0.055f;
                 break;
         }
 

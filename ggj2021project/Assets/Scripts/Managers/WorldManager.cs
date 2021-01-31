@@ -8,9 +8,7 @@ public class WorldManager : MonoBehaviour
         Up,
         Down,
         Left,
-        Right,
-        Forward,
-        Back
+        Right
     }
 
     public static Vector2Int MapSize = new Vector2Int(100, 100);
