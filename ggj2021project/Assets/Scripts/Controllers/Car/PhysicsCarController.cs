@@ -101,4 +101,12 @@ public class PhysicsCarController : MonoBehaviour
         lights[0].GetComponent<Light>().enabled = on;
         lights[1].GetComponent<Light>().enabled = on;
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Vehicle")
+        {
+            Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider);
+        }
+    }
 }

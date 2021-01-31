@@ -9,8 +9,8 @@ public class MapManager : MonoBehaviour
 
     public GameObject DefaultTile;
     public GameObject IslandTile;
-    public GameObject CheckpointTile;
 
+    public GameObject[] CheckpointTiles;
     public GameObject[] CurbTiles;
     public GameObject[] RoadTiles;
     public GameObject[] BuildingTiles;
@@ -18,6 +18,7 @@ public class MapManager : MonoBehaviour
     private GameObject MapParent;
     private string mapString;
     private float IslandOffset = 0;
+    private int CurrentCheckpoint = 0;
 
     void Start()
     {
@@ -79,7 +80,7 @@ public class MapManager : MonoBehaviour
         {
             for (int x = 0; x < WorldManager.MapSize.x; x++)
             {
-                WorldManager.CreateTile(MapParent, DefaultTile, x, y);
+                WorldManager.CreateTile(MapParent, DefaultTile, x, y, "Default");
             }
         }
     }
@@ -102,28 +103,28 @@ public class MapManager : MonoBehaviour
                     string grid = GetRoadGrid(x, y);
 
                     //Straight Up
-                    if (grid == "1010") WorldManager.CreateTile(MapParent, RoadTiles[Random.Range(0, 2)], x, y);
+                    if (grid == "1010") WorldManager.CreateTile(MapParent, RoadTiles[Random.Range(0, 2)], x, y, "Road Straight up");
                     // Straight Across
-                    else if (grid == "0101") WorldManager.CreateTile(MapParent, RoadTiles[Random.Range(3, 5)], x, y);
+                    else if (grid == "0101") WorldManager.CreateTile(MapParent, RoadTiles[Random.Range(3, 5)], x, y, "Road Straight across");
                     // Cross
-                    else if (grid == "1111") WorldManager.CreateTile(MapParent, RoadTiles[6], x, y); // 2 crosses
+                    else if (grid == "1111") WorldManager.CreateTile(MapParent, RoadTiles[6], x, y, "Road Cross"); // 2 crosses
                     // T right
-                    else if (grid == "1110") WorldManager.CreateTile(MapParent, RoadTiles[7], x, y);
+                    else if (grid == "1110") WorldManager.CreateTile(MapParent, RoadTiles[7], x, y, "Road T Right");
                     // T left
-                    else if (grid == "1011") WorldManager.CreateTile(MapParent, RoadTiles[8], x, y);
+                    else if (grid == "1011") WorldManager.CreateTile(MapParent, RoadTiles[8], x, y, "Road T Left");
                     // T down
-                    else if (grid == "0111") WorldManager.CreateTile(MapParent, RoadTiles[9], x, y);
+                    else if (grid == "0111") WorldManager.CreateTile(MapParent, RoadTiles[9], x, y, "Road T Down");
                     // T up
-                    else if (grid == "1101") WorldManager.CreateTile(MapParent, RoadTiles[10], x, y);
+                    else if (grid == "1101") WorldManager.CreateTile(MapParent, RoadTiles[10], x, y, "Road T Up");
                     // Corner Down Right
-                    else if (grid == "0110") WorldManager.CreateTile(MapParent, RoadTiles[11], x, y);
+                    else if (grid == "0110") WorldManager.CreateTile(MapParent, RoadTiles[11], x, y, "Road Corner Down Right");
                     // Corner Down Left
-                    else if (grid == "0011") WorldManager.CreateTile(MapParent, RoadTiles[12], x, y);
+                    else if (grid == "0011") WorldManager.CreateTile(MapParent, RoadTiles[12], x, y, "Road Corner Down Left");
                     // Corner up Right
-                    else if (grid == "1100") WorldManager.CreateTile(MapParent, RoadTiles[13], x, y);
+                    else if (grid == "1100") WorldManager.CreateTile(MapParent, RoadTiles[13], x, y, "Road Corner Up Right");
                     // Corner Up Left
-                    else if (grid == "1001") WorldManager.CreateTile(MapParent, RoadTiles[14], x, y);
-                    else WorldManager.CreateTile(MapParent, RoadTiles[Random.Range(0, 2)], x, y);
+                    else if (grid == "1001") WorldManager.CreateTile(MapParent, RoadTiles[14], x, y, "Road Corner Up Left");
+                    else WorldManager.CreateTile(MapParent, RoadTiles[Random.Range(0, 2)], x, y, "Road");
                 }
 
                 // Curb
@@ -132,10 +133,10 @@ public class MapManager : MonoBehaviour
                     string grid = GetRoadGrid(x, y);
 
                     // NESW
-                    if (grid == "0100") WorldManager.CreateTile(MapParent, CurbTiles[0], x, y);
-                    else if (grid == "0010") WorldManager.CreateTile(MapParent, CurbTiles[1], x, y);
-                    else if (grid == "0001") WorldManager.CreateTile(MapParent, CurbTiles[2], x, y);
-                    else if (grid == "1000") WorldManager.CreateTile(MapParent, CurbTiles[3], x, y);
+                    if (grid == "0100") WorldManager.CreateTile(MapParent, CurbTiles[0], x, y, "Curb");
+                    else if (grid == "0010") WorldManager.CreateTile(MapParent, CurbTiles[1], x, y, "Curb");
+                    else if (grid == "0001") WorldManager.CreateTile(MapParent, CurbTiles[2], x, y, "Curb");
+                    else if (grid == "1000") WorldManager.CreateTile(MapParent, CurbTiles[3], x, y, "Curb");
                     else
                     {
                         // Corner curbs - NESW
@@ -145,44 +146,44 @@ public class MapManager : MonoBehaviour
                         {
                             if (fullRoadGrid.Substring(6, 1) == "1")
                             {
-                                WorldManager.CreateTile(MapParent, CurbTiles[4], x, y);
+                                WorldManager.CreateTile(MapParent, CurbTiles[4], x, y, "Outer corner");
                             }
                             else
                             {
-                                WorldManager.CreateTile(MapParent, CurbTiles[9], x, y);   // Inner corner
+                                WorldManager.CreateTile(MapParent, CurbTiles[9], x, y, "Inner corner");   // Inner corner
                             }
                         }
                         else if (curbGrid == "1001")
                         {
                             if (fullRoadGrid.Substring(0, 1) == "1")
                             {
-                                WorldManager.CreateTile(MapParent, CurbTiles[5], x, y);
+                                WorldManager.CreateTile(MapParent, CurbTiles[5], x, y, "Outer corner");
                             }
                             else
                             {
-                                WorldManager.CreateTile(MapParent, CurbTiles[10], x, y);   // Inner corner
+                                WorldManager.CreateTile(MapParent, CurbTiles[10], x, y, "Inner corner");   // Inner corner
                             }
                         }
                         else if (curbGrid == "1100")
                         {
                             if (fullRoadGrid.Substring(2, 1) == "1")
                             {
-                                WorldManager.CreateTile(MapParent, CurbTiles[6], x, y);
+                                WorldManager.CreateTile(MapParent, CurbTiles[6], x, y, "Outer corner");
                             }
                             else
                             {
-                                WorldManager.CreateTile(MapParent, CurbTiles[11], x, y);   // Inner corner
+                                WorldManager.CreateTile(MapParent, CurbTiles[11], x, y, "Inner corner");   // Inner corner
                             }
                         }
                         else if (curbGrid == "0110")
                         {
                             if (fullRoadGrid.Substring(8, 1) == "1")
                             {
-                                WorldManager.CreateTile(MapParent, CurbTiles[7], x, y);
+                                WorldManager.CreateTile(MapParent, CurbTiles[7], x, y, "Inner corner");
                             }
                             else
                             {
-                                WorldManager.CreateTile(MapParent, CurbTiles[8], x, y);   // Inner corner
+                                WorldManager.CreateTile(MapParent, CurbTiles[8], x, y, "Inner corner");   // Inner corner
                             }
                         }
                     }
@@ -191,7 +192,7 @@ public class MapManager : MonoBehaviour
                 // Island
                 else if (mapCharacter == "I")
                 {
-                    GameObject island = WorldManager.CreateTile(MapParent, IslandTile, x, y);
+                    GameObject island = WorldManager.CreateTile(MapParent, IslandTile, x, y, "Island");
                     island.GetComponent<Island>().Offset = IslandOffset;
                     IslandOffset += 1.0f;
                 }
@@ -199,20 +200,24 @@ public class MapManager : MonoBehaviour
                 // Building
                 else if (mapCharacter == "B")
                 {
-                    WorldManager.CreateTile(MapParent, DefaultTile, x, y);
-                    WorldManager.CreateTile(MapParent, BuildingTiles[Random.Range(0, BuildingTiles.Length)], x, y);
+                    WorldManager.CreateTile(MapParent, DefaultTile, x, y, "Empty");
+                    WorldManager.CreateTile(MapParent, BuildingTiles[Random.Range(0, BuildingTiles.Length)], x, y, "Building");
                 }
 
                 // Checkpoint
                 else if (mapCharacter == "P")
                 {
-                    GameObject checkpoint = WorldManager.CreateTile(MapParent, CheckpointTile, x, y);
+                    if (CurrentCheckpoint < CheckpointTiles.Length)
+                    {
+                        GameObject checkpoint = WorldManager.CreateTile(MapParent, CheckpointTiles[CurrentCheckpoint], x, y, "Checkpoint " + CurrentCheckpoint.ToString() + " " + CheckpointTiles[CurrentCheckpoint].name, "Checkpoint");
+                        CurrentCheckpoint++;
+                    }
                 }
 
                 // Grass
                 else
                 {
-                    WorldManager.CreateTile(MapParent, DefaultTile, x, y);
+                    WorldManager.CreateTile(MapParent, DefaultTile, x, y, "Ground");
                 }
             }
         }

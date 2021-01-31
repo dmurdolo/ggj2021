@@ -20,6 +20,11 @@ public class CheckpointManager : MonoBehaviour
         {
             Debug.LogError("NarrativeManager component not found.");
         }
+
+        if (GameObject.Find("Map"))
+        {
+            Checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
+        }
     }
 
     // Update is called once per frame

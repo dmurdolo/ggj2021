@@ -39,7 +39,10 @@ public class GhostCarController : MonoBehaviour
             ToggleWheels(wheels, true);
             trail.emitting = false;
 
-            SetNewDestination();
+            if (checkpointManager.GetCurrentCheckpoint() < checkpointManager.Checkpoints.Length)
+            {
+                SetNewDestination();
+            }
             //StartCoroutine(GoToNextScenario());
         }
     }
@@ -118,6 +121,11 @@ public class GhostCarController : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
+        {
+            Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider);
+        }
+
+        if (collision.gameObject.tag == "Vehicle")
         {
             Physics.IgnoreCollision(GetComponent<Collider>(), collision.collider);
         }

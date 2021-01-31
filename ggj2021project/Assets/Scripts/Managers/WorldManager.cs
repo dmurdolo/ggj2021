@@ -90,13 +90,15 @@ public class WorldManager : MonoBehaviour
             (worldPosition.z / TileSize.y + (TileSize.y / 2.0f)) + offset.y);
     }
 
-    public static GameObject CreateTile(GameObject parent, GameObject go, int x, int y)
+    public static GameObject CreateTile(GameObject parent, GameObject go, int x, int y, string name, string tag = "Untagged")
     {
         Vector2 offset = GetOffset();
 
         GameObject tile = Instantiate(go);
         tile.transform.parent = parent.transform;
         tile.transform.position = new Vector3(-x * TileSize.x + offset.x, 0, y * TileSize.y - offset.y);
+        tile.name = name;
+        tile.tag = tag;
 
         return tile;
     }
