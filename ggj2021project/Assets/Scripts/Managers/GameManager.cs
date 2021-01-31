@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private AudioClip outro;
 
+    public bool _gameComplete = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -76,15 +78,14 @@ public class GameManager : MonoBehaviour
         _endGameArea.SetActive(true);
         _fatherVehicle.SetActive(false);
         _endFatherVehicle.SetActive(true);
+        _dashboard.SetActive(false);
+
+        _gameComplete = true;
 
         foreach (GameObject obj in _hideObjects)
         {
             obj.SetActive(false);
         }
-
-        yield return new WaitForSeconds(6f);
-
-        _dashboard.SetActive(false);
 
         yield return new WaitForSeconds(8f);
 
