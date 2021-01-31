@@ -48,7 +48,7 @@ public class Checkpoint : MonoBehaviour
             if (!_isComplete)
             {
                 _isComplete = true;
-                _checkpointManager.DisplayNarrative();
+                _checkpointManager.UpdateUI();
                 _checkpointManager.SetNextCheckpointActive();
                 GetComponent<BoxCollider>().enabled = false;                
             }

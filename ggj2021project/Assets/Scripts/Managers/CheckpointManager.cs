@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
@@ -10,15 +8,20 @@ public class CheckpointManager : MonoBehaviour
     private int _currentCheckpoint = 0;
 
     private NarrativeManager _narrativeManager;
+    private CheckpointCounterManager _checkpointCounterManager;
 
-    // Start is called before the first frame update
     void Start()
     {
         _narrativeManager = GetComponent<NarrativeManager>();
-
         if (!_narrativeManager)
         {
             Debug.LogError("NarrativeManager component not found.");
+        }
+
+        _checkpointCounterManager = GetComponent<CheckpointCounterManager>();
+        if (!_checkpointCounterManager)
+        {
+            Debug.LogError("CheckpointCounterManager component not found.");
         }
 
         if (GameObject.Find("Map"))
@@ -32,11 +35,6 @@ public class CheckpointManager : MonoBehaviour
 
             Checkpoints[0].gameObject.GetComponent<BoxCollider>().enabled = true;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {        
     }
 
     public void AddCheckpoint(GameObject checkpoint)
@@ -71,8 +69,19 @@ public class CheckpointManager : MonoBehaviour
         }
     }
 
-    public void DisplayNarrative()
+    public void UpdateUI()
+    {
+        DisplayNarrative();
+        UpdateCheckpointCounter();
+    }
+
+    private void DisplayNarrative()
     {
         _narrativeManager.DisplayCheckpointNarrative(_currentCheckpoint);
+    }
+
+    private void UpdateCheckpointCounter()
+    {
+        _checkpointCounterManager.SetCheckpoint(_currentCheckpoint);
     }
 }
