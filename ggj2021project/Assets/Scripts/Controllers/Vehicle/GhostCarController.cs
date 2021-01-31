@@ -16,8 +16,6 @@ public class GhostCarController : MonoBehaviour
     [SerializeField]
     private bool keepMoving = true;
     [SerializeField]
-    private bool notAtCheckpoint = true;
-    [SerializeField]
     private bool firstCheckpoint = true;
 
     TrailRenderer trail;
@@ -48,7 +46,6 @@ public class GhostCarController : MonoBehaviour
             MeshRenderer car = transform.GetComponent<MeshRenderer>();
 
             firstCheckpoint = false;
-            notAtCheckpoint = false;
 
             car.enabled = true;
             ToggleWheels(wheels, true);
@@ -88,8 +85,6 @@ public class GhostCarController : MonoBehaviour
         while (keepMoving)
         {
             yield return new WaitForSeconds(firstCheckpoint ? 0f : 4f);
-
-            notAtCheckpoint = true;
 
             currentWorldDestination = checkpointManager.Checkpoints.Length > 0 ? checkpointManager.GetCurrentCheckpointPosition() : transform.position;
             agent.SetDestination(currentWorldDestination);
