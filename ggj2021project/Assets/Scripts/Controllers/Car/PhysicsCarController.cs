@@ -53,11 +53,6 @@ public class PhysicsCarController : MonoBehaviour
             EnableBrakeLights(false);
         }
 
-        if (vInput < 0)
-        {
-            EnableBrakeLights(true);
-        }
-
         foreach (WheelCollider wheel in wheels)
         {
             // a simple car where front wheels steer while rear ones drive

@@ -483,18 +483,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bd061879cf9dca4f8206f8f522add1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  visualCar: {fileID: 2844790354575648673}
+  centreOfMass: {fileID: 91645561284085510}
   maxAngle: 30
   maxTorque: 200
   topSpeed: 75
   currentSpeed: 0
+  CarEngine: {fileID: 7812709251202636640}
   lights:
   - {fileID: 3037554307606034914}
   - {fileID: 3017567271832813412}
   brakes: 0
   brakesPower: 9000
-  visualCar: {fileID: 2844790354575648673}
-  centreOfMass: {fileID: 91645561284085510}
-  CarEngine: {fileID: 7812709251202636640}
 --- !u!1 &2844790354575934611
 GameObject:
   m_ObjectHideFlags: 0
@@ -507,7 +507,7 @@ GameObject:
   - component: {fileID: 2844790354572812793}
   - component: {fileID: 2844790354573682335}
   - component: {fileID: 1468655696243260231}
-  - component: {fileID: 2844790354343141223}
+  - component: {fileID: 4116403856803461390}
   m_Layer: 0
   m_Name: Wheel_fl
   m_TagString: Untagged
@@ -592,7 +592,7 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 6df34ee591500634282ce8431bcb6976, type: 3}
---- !u!146 &2844790354343141223
+--- !u!146 &4116403856803461390
 WheelCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -614,13 +614,13 @@ WheelCollider:
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 4.5
+    m_Stiffness: 1
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.4
+    m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 3
+    m_Stiffness: 1
   m_Enabled: 1
 --- !u!1 &2844790354575949491
 GameObject:

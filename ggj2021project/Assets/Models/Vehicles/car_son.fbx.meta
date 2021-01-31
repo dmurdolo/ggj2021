@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 86711ec000e9b0646973b39493903b25
+guid: 2fecd3cfedc25614ab7f5dd1c4848489
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -8,12 +8,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Car
-    second: {fileID: 2100000, guid: c7ec6751f4b0ce444a4eaa2353cb0f08, type: 2}
+    second: {fileID: 2100000, guid: 409f5c8ed3c415a489a8484524d3d47f, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Dark
     second: {fileID: 2100000, guid: 11a467242176ef949b67d620b87c8256, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Emission Blue
+    second: {fileID: 2100000, guid: 4f04e47ac05bb934d91fcec09cb14f00, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Emission Pink
+    second: {fileID: 2100000, guid: 3e113df22aaf0454aba9b3dc1a0f6bd1, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -51,7 +61,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
-    isReadable: 0
+    isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
@@ -59,10 +69,10 @@ ModelImporter:
     addColliders: 0
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
-    importVisibility: 1
+    importVisibility: 0
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
     generateSecondaryUV: 0
@@ -105,7 +115,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 1
+    globalScale: 0.01
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

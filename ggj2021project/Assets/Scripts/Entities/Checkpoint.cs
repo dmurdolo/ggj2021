@@ -31,6 +31,16 @@ public class Checkpoint : MonoBehaviour
     {        
     }
 
+    public bool IsCheckpointComplete()
+    {
+        return _isComplete;
+    }
+
+    public void CompleteCheckpoint()
+    {
+        _isComplete = true;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")

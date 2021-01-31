@@ -14,17 +14,6 @@ public class CheckpointManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
-        
-        if (Checkpoints.Length == 0)
-        {
-            Debug.LogError("No Checkpoints found!");
-        }
-        else
-        {
-            Checkpoints[0].GetComponent<BoxCollider>().enabled = true;
-        }
-
         _narrativeManager = GameObject.Find("Managers").GetComponent<NarrativeManager>();
 
         if (!_narrativeManager)
@@ -48,9 +37,19 @@ public class CheckpointManager : MonoBehaviour
         return _currentCheckpoint;
     }
 
-    public void DisplayNarrative()
+    public Vector3 GetCurrentCheckpointPosition()
     {
-        _narrativeManager.DisplayCheckpointNarrative(_currentCheckpoint);
+        if (Checkpoints.Length > 0)
+        {
+            return Checkpoints[_currentCheckpoint].transform.position;
+        }
+
+        return new Vector3(0, 0, 0);
+    }
+
+    public bool IsCheckpointComplete()
+    {
+        return Checkpoints[_currentCheckpoint].GetComponent<Checkpoint>().IsCheckpointComplete();
     }
 
     public void SetNextCheckpointActive()
@@ -58,8 +57,15 @@ public class CheckpointManager : MonoBehaviour
         if (_currentCheckpoint < Checkpoints.Length)
         {
             Debug.Log("Player was at checkpoint " + _currentCheckpoint);
+            Checkpoints[_currentCheckpoint].GetComponent<Checkpoint>().CompleteCheckpoint();
+
             _currentCheckpoint++;
             Checkpoints[_currentCheckpoint].GetComponent<BoxCollider>().enabled = true;
         }
+    }
+
+    public void DisplayNarrative()
+    {
+        _narrativeManager.DisplayCheckpointNarrative(_currentCheckpoint);
     }
 }
