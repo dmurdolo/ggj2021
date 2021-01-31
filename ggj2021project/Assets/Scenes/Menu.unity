@@ -312,7 +312,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 29150d063b560d443b179abf68f438ae, type: 2}
+  m_Texture: {fileID: 8400000, guid: a45d2690f8006c94cae01dfbd7d82837, type: 2}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -534,11 +534,11 @@ VideoPlayer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091642321}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: a3e961e3fd81ea944ac8a10fcae0d8f3, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 411f23e045a2b4643bec34cf3d83b309, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
-  m_TargetTexture: {fileID: 8400000, guid: 29150d063b560d443b179abf68f438ae, type: 2}
+  m_TargetTexture: {fileID: 8400000, guid: a45d2690f8006c94cae01dfbd7d82837, type: 2}
   m_TimeReference: 0
   m_TargetMaterialRenderer: {fileID: 0}
   m_TargetMaterialProperty: _MainTex
@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.43137255}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.9137255}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -807,7 +807,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d23050d19aa94fb4a8dc60aa3d26e282, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3133cfe2c01ba10478fb6d41625dc8aa, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
