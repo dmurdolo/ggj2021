@@ -14,7 +14,7 @@ public class CheckpointManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _narrativeManager = GameObject.Find("Managers").GetComponent<NarrativeManager>();
+        _narrativeManager = GetComponent<NarrativeManager>();
 
         if (!_narrativeManager)
         {

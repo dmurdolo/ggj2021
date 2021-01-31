@@ -10,11 +10,13 @@ public class GameManager : MonoBehaviour
     private GameObject[] _hideObjects;
     [SerializeField]
     private GameObject _endGameArea;
+    [SerializeField]
+    private GameObject _fatherVehicle;
 
     // Start is called before the first frame update
     void Start()
     {
-        checkpointManager = GameObject.Find("Managers").GetComponent<CheckpointManager>();
+        checkpointManager = GetComponent<CheckpointManager>();
 
         if (!checkpointManager)
         {
@@ -26,10 +28,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (checkpointManager.GetCurrentCheckpoint() == checkpointManager.Checkpoints.Length-1)
+        if (checkpointManager.GetCurrentCheckpoint() == checkpointManager.Checkpoints.Length)
         {
             _endGameArea.SetActive(true);
+            _fatherVehicle.SetActive(false);
 
             foreach (GameObject obj in _hideObjects)
             {

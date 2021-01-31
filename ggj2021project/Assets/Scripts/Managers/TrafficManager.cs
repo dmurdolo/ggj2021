@@ -17,7 +17,7 @@ public class TrafficManager : MonoBehaviour
 
     public void Init()
     {
-        mapManager = GameObject.Find("Managers").GetComponent<MapManager>();
+        mapManager = GetComponent<MapManager>();
 
         VehiclesParent = GameObject.Find("Vehicles");
 

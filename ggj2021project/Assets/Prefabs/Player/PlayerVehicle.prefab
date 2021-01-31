@@ -1073,8 +1073,8 @@ MonoBehaviour:
   visualCar: {fileID: 6139400744669356940}
   centreOfMass: {fileID: 7369900279226646226}
   maxAngle: 25
-  maxTorque: 250
-  topSpeed: 50
+  maxTorque: 200
+  topSpeed: 40
   currentSpeed: 0
   CarEngine: {fileID: 3649518426479357451}
   lights:
