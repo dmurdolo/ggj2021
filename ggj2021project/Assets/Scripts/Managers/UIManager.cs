@@ -10,6 +10,7 @@ public class UIManager : MonoBehaviour
     public void EnableMessageUI()
     {
         _messageUI.SetActive(true);
+        _messageUI.GetComponent<FadeCanvasGroup>().Show();
     }
 
     public void UpdateMessageUI(string message)
@@ -22,6 +23,6 @@ public class UIManager : MonoBehaviour
     IEnumerator HideCoroutine()
     {
         yield return new WaitForSeconds(8f);
-        _messageUI.SetActive(false);
+        _messageUI.GetComponent<FadeCanvasGroup>().StartFadeOut();
     }
 }

@@ -7,23 +7,34 @@ public class CheckpointManager : MonoBehaviour
     [SerializeField]
     private int _currentCheckpoint = 0;
 
+    private DestinationDisplayManager _destinationDisplayManager;
     private NarrativeManager _narrativeManager;
     private CheckpointCounterManager _checkpointCounterManager;
 
     void Start()
     {
+        // Destination display
+        _destinationDisplayManager = GetComponent<DestinationDisplayManager>();
+        if (!_destinationDisplayManager)
+        {
+            Debug.LogError("DestinationDisplayManager component not found.");
+        }
+
+        // Narrative
         _narrativeManager = GetComponent<NarrativeManager>();
         if (!_narrativeManager)
         {
             Debug.LogError("NarrativeManager component not found.");
         }
 
+        // Checkpoint counter
         _checkpointCounterManager = GetComponent<CheckpointCounterManager>();
         if (!_checkpointCounterManager)
         {
             Debug.LogError("CheckpointCounterManager component not found.");
         }
 
+        // Checkpoint gameobjects
         if (GameObject.Find("Map"))
         {
             Checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
@@ -71,17 +82,8 @@ public class CheckpointManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        DisplayNarrative();
-        UpdateCheckpointCounter();
-    }
-
-    private void DisplayNarrative()
-    {
+        _destinationDisplayManager.SetCheckpoint(_currentCheckpoint);
         _narrativeManager.DisplayCheckpointNarrative(_currentCheckpoint);
-    }
-
-    private void UpdateCheckpointCounter()
-    {
         _checkpointCounterManager.SetCheckpoint(_currentCheckpoint);
     }
 }

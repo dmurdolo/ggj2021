@@ -5,14 +5,25 @@ public class FadeCanvasGroup : MonoBehaviour
 {
     public float Speed = 0.5f;
 
-    public void StartFade()
+    private CanvasGroup canvasGroup;
+
+    void Start()
     {
-        StartCoroutine(DoFade());
+        canvasGroup = GetComponent<CanvasGroup>();
     }
 
-    IEnumerator DoFade()
+    public void Show()
     {
-        CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 1;
+    }
+
+    public void StartFadeOut()
+    {
+        StartCoroutine(DoFadeOut());
+    }
+
+    IEnumerator DoFadeOut()
+    {
         while(canvasGroup.alpha > 0)
         {
             canvasGroup.alpha -= Time.deltaTime * Speed;

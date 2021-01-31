@@ -15,14 +15,14 @@ public class VideoController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             GetComponent<VideoPlayer>().Pause();
-            Panel.GetComponent<FadeCanvasGroup>().StartFade();
+            Panel.GetComponent<FadeCanvasGroup>().StartFadeOut();
             gameObject.SetActive(false);
         }
     }
 
     void EndReached(UnityEngine.Video.VideoPlayer vp)
     {
-        Panel.GetComponent<FadeCanvasGroup>().StartFade();
+        Panel.GetComponent<FadeCanvasGroup>().StartFadeOut();
         gameObject.SetActive(false);
     }
 }
