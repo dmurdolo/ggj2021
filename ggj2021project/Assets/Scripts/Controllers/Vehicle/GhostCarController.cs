@@ -50,17 +50,14 @@ public class GhostCarController : MonoBehaviour
             firstCheckpoint = false;
             notAtCheckpoint = false;
 
-
             car.enabled = true;
             ToggleWheels(wheels, true);
-            trail.emitting = false;
-            trail.Clear();
         }
 
-        //if (checkpointManager.GetCurrentCheckpoint() >= checkpointManager.Checkpoints.Length)
-        //{
-        //    StopAllCoroutines();
-        //}
+        if (checkpointManager.GetCurrentCheckpoint() >= checkpointManager.Checkpoints.Length)
+        {
+            StopAllCoroutines();
+        }
     }
 
     private bool HasReachedDestination()
@@ -90,8 +87,6 @@ public class GhostCarController : MonoBehaviour
     {
         while (keepMoving)
         {
-            Debug.Log("GO!");
-
             yield return new WaitForSeconds(firstCheckpoint ? 0f : 4f);
 
             notAtCheckpoint = true;
@@ -138,6 +133,11 @@ public class GhostCarController : MonoBehaviour
         }
 
         if (collision.gameObject.tag == "Vehicle")
+        {
+            Physics.IgnoreCollision(theirs, mine);
+        }
+
+        if (collision.gameObject.tag == "Wheel")
         {
             Physics.IgnoreCollision(theirs, mine);
         }
