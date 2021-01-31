@@ -21,6 +21,8 @@ public class FadeCanvasGroup : MonoBehaviour
 
     public void StartFadeOut()
     {
+        if (!GameObject.Find("Dashboard")) return;
+        
         if (GameObject.Find("Dashboard").activeInHierarchy)
         {
             StartCoroutine(DoFadeOut());

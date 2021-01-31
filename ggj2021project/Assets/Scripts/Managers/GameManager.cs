@@ -68,6 +68,7 @@ public class GameManager : MonoBehaviour
         _playerVehicle.transform.Find("Trail_Right").gameObject.SetActive(false);
 
         _music.GetComponent<AudioSource>().clip = outro;
+        _music.GetComponent<AudioSource>().volume = 1.0f;
         _music.GetComponent<AudioSource>().Play();
     }
 

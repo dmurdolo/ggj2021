@@ -22,6 +22,8 @@ public class FadeImage : MonoBehaviour
 
     public void StartFadeOut()
     {
+        if (!GameObject.Find("Dashboard")) return;
+        
         if (GameObject.Find("Dashboard").activeInHierarchy)
         {
             StartCoroutine(DoFadeOut());
