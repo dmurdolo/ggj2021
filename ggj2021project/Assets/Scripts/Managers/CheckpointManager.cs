@@ -37,19 +37,6 @@ public class CheckpointManager : MonoBehaviour
         {
             Debug.LogError("CheckpointCounterManager component not found.");
         }
-
-        // Checkpoint gameobjects
-        if (GameObject.Find("Map"))
-        {
-            Checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
-
-            foreach(GameObject cp in Checkpoints)
-            {
-                cp.GetComponent<BoxCollider>().enabled = false;
-            }
-
-            Checkpoints[0].gameObject.GetComponent<BoxCollider>().enabled = true;
-        }
     }
 
     public void AddCheckpoint(GameObject checkpoint)

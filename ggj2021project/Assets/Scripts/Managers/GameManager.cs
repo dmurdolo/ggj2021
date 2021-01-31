@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator StartEndGame()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(4f);
 
         _endGameArea.SetActive(true);
         _fatherVehicle.SetActive(false);

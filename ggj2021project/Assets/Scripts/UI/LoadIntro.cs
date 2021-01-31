@@ -4,7 +4,14 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LoadIntro : MonoBehaviour
-{    public void LoadIntroLevel()
+{    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            Application.Quit();
+        }
+    }
+
+    public void LoadIntroLevel()
     {
         SceneManager.LoadScene(1);
     }
