@@ -136,6 +136,56 @@ public class MapManager : MonoBehaviour
                     else if (grid == "0010") WorldManager.CreateTile(MapParent, CurbTiles[1], x, y);
                     else if (grid == "0001") WorldManager.CreateTile(MapParent, CurbTiles[2], x, y);
                     else if (grid == "1000") WorldManager.CreateTile(MapParent, CurbTiles[3], x, y);
+                    else
+                    {
+                        // Corner curbs - NESW
+                        string fullRoadGrid = GetRoadGrid(x, y, false);
+                        string curbGrid = GetCurbGrid(x, y);
+                        if (curbGrid == "0011")
+                        {
+                            if (fullRoadGrid.Substring(6, 1) == "1")
+                            {
+                                WorldManager.CreateTile(MapParent, CurbTiles[4], x, y);
+                            }
+                            else
+                            {
+                                WorldManager.CreateTile(MapParent, CurbTiles[6], x, y);
+                            }
+                        }
+                        else if (curbGrid == "1001")
+                        {
+                            if (fullRoadGrid.Substring(0, 1) == "1")
+                            {
+                                WorldManager.CreateTile(MapParent, CurbTiles[5], x, y);
+                            }
+                            else
+                            {
+                                WorldManager.CreateTile(MapParent, CurbTiles[7], x, y);
+                            }
+                        }
+                        else if (curbGrid == "1100")
+                        {
+                            if (fullRoadGrid.Substring(2, 1) == "1")
+                            {
+                                WorldManager.CreateTile(MapParent, CurbTiles[6], x, y);
+                            }
+                            else
+                            {
+                                WorldManager.CreateTile(MapParent, CurbTiles[4], x, y);
+                            }
+                        }
+                        else if (curbGrid == "0110")
+                        {
+                            if (fullRoadGrid.Substring(8, 1) == "1")
+                            {
+                                WorldManager.CreateTile(MapParent, CurbTiles[7], x, y);
+                            }
+                            else
+                            {
+                                WorldManager.CreateTile(MapParent, CurbTiles[5], x, y);
+                            }
+                        }
+                    }
                 }
 
                 // Island
@@ -173,8 +223,28 @@ public class MapManager : MonoBehaviour
         return map.Substring(x + (y * WorldManager.MapSize.x), 1);
     }
 
+    public string GetRoadGrid(int x, int y, bool onlyReturnNESW = true)
+    {
+        return GetTileTypeGrid("R", x, y, onlyReturnNESW);
+    }
+
+    private bool IsRoad(string map, int x, int y)
+    {
+        return IsTileType(map, "R", x, y);
+    }
+
+    public string GetCurbGrid(int x, int y)
+    {
+        return GetTileTypeGrid("C", x, y);
+    }
+
+    private bool IsCurb(string map, int x, int y)
+    {
+        return IsTileType(map, "C", x, y);
+    }
+
     // Returns a string of the NESW values, e.g. 0000, 0100, etc.
-    public string GetRoadGrid(int x, int y)
+    public string GetTileTypeGrid(string tileType, int x, int y, bool onlyReturnNESW = true)
     {
         string grid = "";
 
@@ -182,57 +252,60 @@ public class MapManager : MonoBehaviour
 
         // Top left
         if (x == 0 || y == 0) grid += "0";
-        else grid += IsRoad(mapString, x - 1, y - 1) ? "1" : "0";
+        else grid += IsTileType(mapString, tileType, x - 1, y - 1) ? "1" : "0";
 
         // Top middle
         if (y == 0) grid += "0";
-        else grid += IsRoad(mapString, x, y - 1) ? "1" : "0";
+        else grid += IsTileType(mapString, tileType, x, y - 1) ? "1" : "0";
 
         // Top right
         if (x == WorldManager.MapSize.x - 1 || y == 0) grid += "0";
-        else grid += IsRoad(mapString, x + 1, y - 1) ? "1" : "0";
+        else grid += IsTileType(mapString, tileType, x + 1, y - 1) ? "1" : "0";
 
         // --------------------------------------------------------------------
 
         // Left
         if (x == 0) grid += "0";
-        else grid += IsRoad(mapString, x - 1, y) ? "1" : "0";
+        else grid += IsTileType(mapString, tileType, x - 1, y) ? "1" : "0";
 
         grid += "1";
 
         // Right
         if (x == WorldManager.MapSize.x - 1) grid += "0";
-        else grid += IsRoad(mapString, x + 1, y) ? "1" : "0";
+        else grid += IsTileType(mapString, tileType, x + 1, y) ? "1" : "0";
 
         // --------------------------------------------------------------------
 
         // Bottom left
         if (x == 0 || y == WorldManager.MapSize.y - 1) grid += "0";
-        else grid += IsRoad(mapString, x - 1, y + 1) ? "1" : "0";
+        else grid += IsTileType(mapString, tileType, x - 1, y + 1) ? "1" : "0";
 
         // Bottom middle
         if (y == WorldManager.MapSize.y - 1) grid += "0";
-        else grid += IsRoad(mapString, x, y + 1) ? "1" : "0";
+        else grid += IsTileType(mapString, tileType, x, y + 1) ? "1" : "0";
 
         // Bottom right
         if (x == WorldManager.MapSize.x - 1 || y == WorldManager.MapSize.y - 1) grid += "0";
-        else grid += IsRoad(mapString, x + 1, y + 1) ? "1" : "0";
+        else grid += IsTileType(mapString, tileType, x + 1, y + 1) ? "1" : "0";
 
         // --------------------------------------------------------------------
 
-        // Just return NESW values - e.g. 0000
+        // Just return NESW values - e.g. 0000 (1573)
         // 0 1 2
         // 3 4 5
         // 6 7 8
-        grid = grid.Substring(1, 1) + grid.Substring(5, 1) + grid.Substring(7, 1) + grid.Substring(3, 1);
+        if (onlyReturnNESW)
+        {
+            grid = grid.Substring(1, 1) + grid.Substring(5, 1) + grid.Substring(7, 1) + grid.Substring(3, 1);
+        }
 
         return grid;
     }
 
-    // Check if there is a road at (x, y)
-    private bool IsRoad(string map, int x, int y)
+    // Check if there is a ? at (x, y)
+    private bool IsTileType(string map, string tileType, int x, int y)
     {
         string charAt = GetMapCharacterAt(map, x, y);
-        return charAt == "R";
+        return charAt == tileType;
     }
 }
