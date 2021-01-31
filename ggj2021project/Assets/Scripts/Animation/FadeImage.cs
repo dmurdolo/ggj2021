@@ -22,7 +22,10 @@ public class FadeImage : MonoBehaviour
 
     public void StartFadeOut()
     {
-        StartCoroutine(DoFadeOut());
+        if (GameObject.Find("Dashboard").activeInHierarchy)
+        {
+            StartCoroutine(DoFadeOut());
+        }
     }
 
     IEnumerator DoFadeOut()
