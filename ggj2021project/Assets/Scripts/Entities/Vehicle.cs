@@ -4,8 +4,6 @@ public class Vehicle : MonoBehaviour
 {
     public float Speed = 1.0f;
 
-    private bool isFirstChange = true;
-    private bool isStationary = true;
     private Vector2Int lastTilePosition = new Vector2Int(-1, -1);
 
     void Start()
@@ -15,7 +13,6 @@ public class Vehicle : MonoBehaviour
     void Update()
     {
         //Drive();
-        return;
     }
 
     private void Drive()
