@@ -72,7 +72,6 @@ public class CheckpointManager : MonoBehaviour
     {
         if (_currentCheckpoint < Checkpoints.Length-1)
         {
-            Debug.Log("Player was at checkpoint " + _currentCheckpoint);
             Checkpoints[_currentCheckpoint].GetComponent<Checkpoint>().CompleteCheckpoint();
 
             _currentCheckpoint++;
