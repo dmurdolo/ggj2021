@@ -149,7 +149,7 @@ public class MapManager : MonoBehaviour
                             }
                             else
                             {
-                                WorldManager.CreateTile(MapParent, CurbTiles[6], x, y);
+                                WorldManager.CreateTile(MapParent, CurbTiles[9], x, y);   // Inner corner
                             }
                         }
                         else if (curbGrid == "1001")
@@ -160,7 +160,7 @@ public class MapManager : MonoBehaviour
                             }
                             else
                             {
-                                WorldManager.CreateTile(MapParent, CurbTiles[7], x, y);
+                                WorldManager.CreateTile(MapParent, CurbTiles[10], x, y);   // Inner corner
                             }
                         }
                         else if (curbGrid == "1100")
@@ -171,7 +171,7 @@ public class MapManager : MonoBehaviour
                             }
                             else
                             {
-                                WorldManager.CreateTile(MapParent, CurbTiles[4], x, y);
+                                WorldManager.CreateTile(MapParent, CurbTiles[11], x, y);   // Inner corner
                             }
                         }
                         else if (curbGrid == "0110")
@@ -182,7 +182,7 @@ public class MapManager : MonoBehaviour
                             }
                             else
                             {
-                                WorldManager.CreateTile(MapParent, CurbTiles[5], x, y);
+                                WorldManager.CreateTile(MapParent, CurbTiles[8], x, y);   // Inner corner
                             }
                         }
                     }
