@@ -48,6 +48,7 @@ public class Checkpoint : MonoBehaviour
             if (!_isComplete)
             {
                 _isComplete = true;
+                GetComponent<AudioSource>().Play();
                 _checkpointManager.UpdateUI();
                 _checkpointManager.SetNextCheckpointActive();
                 GetComponent<BoxCollider>().enabled = false;                
