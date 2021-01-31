@@ -1,6 +1,6 @@
 using UnityEngine;
 using System.Collections;
-public class PhysicsCarController : MonoBehaviour
+public class PhysicsCarControllerEndGame : MonoBehaviour
 {
     public Transform visualCar;
     public Transform centreOfMass;
@@ -18,11 +18,6 @@ public class PhysicsCarController : MonoBehaviour
     [SerializeField]
     private Light[] lights;
 
-    [SerializeField]
-    private float brakes = 0f;
-    [SerializeField]
-    private float brakesPower = 500f;
-
     // here we find all the WheelColliders down in the hierarchy
     public void Start()
     {
@@ -35,25 +30,8 @@ public class PhysicsCarController : MonoBehaviour
     // this helps us to figure our which wheels are front ones and which are rear
     public void Update()
     {
-        float vInput = Input.GetAxis("Vertical");
         float hInput = Input.GetAxis("Horizontal");
-
         float angle = maxAngle * hInput;
-        float torque = maxTorque * vInput;
-
-        // Brakes!
-        if (Input.GetKey(KeyCode.Space))
-        {
-            brakes = brakesPower;
-            EnableBrakeLights(true);
-        }
-        else
-        {
-            brakes = 0f;
-            EnableBrakeLights(false);
-        }
-
-        int current = 0;
 
         foreach (WheelCollider wheel in wheels)
         {
@@ -61,10 +39,7 @@ public class PhysicsCarController : MonoBehaviour
             if (wheel.transform.localPosition.z > 0)
                 wheel.steerAngle = angle;
 
-            wheel.motorTorque = torque;
-
-            // apply the brakes!
-            wheel.brakeTorque = brakes;
+            wheel.motorTorque = maxTorque;
 
             // update visual wheels if any
             {
@@ -74,11 +49,8 @@ public class PhysicsCarController : MonoBehaviour
 
                 // assume that the only child of the wheelcollider is the wheel shape
                 Transform shapeTransform = visualCar.Find("Wheel_" + wheel.name);
-                //shapeTransform.position = p;
                 shapeTransform.rotation = q;
             }
-
-            current++;
         }
 
         // CURRENT SPEED
@@ -93,28 +65,6 @@ public class PhysicsCarController : MonoBehaviour
         if (currentSpeed > topSpeed)
         {
             GetComponent<Rigidbody>().velocity = GetComponent<Rigidbody>().velocity.normalized * topSpeed;
-        }
-    }
-
-    void EnableBrakeLights(bool on)
-    {
-        lights[0].GetComponent<Light>().enabled = on;
-        lights[1].GetComponent<Light>().enabled = on;
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        Collider theirs = collision.gameObject.GetComponent<Collider>();
-        Collider mine = GetComponent<Collider>();
-
-        if (collision.gameObject.tag == "Vehicle")
-        {
-            Physics.IgnoreCollision(theirs, mine);
-        }
-
-        if (collision.gameObject.tag == "Wheel")
-        {
-            Physics.IgnoreCollision(theirs, mine);
         }
     }
 }

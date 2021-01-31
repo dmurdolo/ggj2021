@@ -9,7 +9,7 @@ MeshCollider:
   m_GameObject: {fileID: 1147027614491774284}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -23,7 +23,7 @@ MeshCollider:
   m_GameObject: {fileID: 1482011473480683465}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -37,7 +37,7 @@ MeshCollider:
   m_GameObject: {fileID: 1685804033730967850}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -147,7 +147,7 @@ MeshCollider:
   m_GameObject: {fileID: 6587350888039668484}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -203,9 +203,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -6855608532129825988, guid: 7bb7bd20e8626ed478c79ab0f63dddcd, type: 3}
+      propertyPath: m_TagString
+      value: Wheel
+      objectReference: {fileID: 0}
+    - target: {fileID: -6687854106743583265, guid: 7bb7bd20e8626ed478c79ab0f63dddcd, type: 3}
+      propertyPath: m_TagString
+      value: Wheel
+      objectReference: {fileID: 0}
+    - target: {fileID: -4926416547548382791, guid: 7bb7bd20e8626ed478c79ab0f63dddcd, type: 3}
+      propertyPath: m_TagString
+      value: Wheel
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7bb7bd20e8626ed478c79ab0f63dddcd, type: 3}
       propertyPath: m_Name
       value: car_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8007450107981623281, guid: 7bb7bd20e8626ed478c79ab0f63dddcd, type: 3}
+      propertyPath: m_TagString
+      value: Wheel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7bb7bd20e8626ed478c79ab0f63dddcd, type: 3}

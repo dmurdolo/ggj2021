@@ -63,9 +63,9 @@ public class CheckpointManager : MonoBehaviour
         return Checkpoints != null && Checkpoints.Length > 0 ? Checkpoints[_currentCheckpoint].transform.position : new Vector3(0, 0, 0);
     }
 
-    public bool IsCheckpointComplete()
+    public bool IsCheckpointComplete(int checkpoint)
     {
-        return Checkpoints[_currentCheckpoint].GetComponent<Checkpoint>().IsCheckpointComplete();
+        return Checkpoints[checkpoint].GetComponent<Checkpoint>().IsCheckpointComplete();
     }
 
     public void SetNextCheckpointActive()
