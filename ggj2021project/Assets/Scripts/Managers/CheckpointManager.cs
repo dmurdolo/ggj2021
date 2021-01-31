@@ -24,6 +24,13 @@ public class CheckpointManager : MonoBehaviour
         if (GameObject.Find("Map"))
         {
             Checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint");
+
+            foreach(GameObject cp in Checkpoints)
+            {
+                cp.GetComponent<BoxCollider>().enabled = false;
+            }
+
+            Checkpoints[0].gameObject.GetComponent<BoxCollider>().enabled = true;
         }
     }
 

@@ -20,11 +20,19 @@ public class GhostCarController : MonoBehaviour
     [SerializeField]
     private bool firstCheckpoint = true;
 
+    TrailRenderer trail;
+    GameObject[] wheels;
+    MeshRenderer car;
+
     // Start is called before the first frame update
     void Start()
     {
         checkpointManager = GameObject.Find("Managers").GetComponent<CheckpointManager>();
         agent = GetComponent<NavMeshAgent>();
+
+        trail = transform.Find("Trail").GetComponent<TrailRenderer>();
+        wheels = GameObject.FindGameObjectsWithTag("Wheel");
+        car = transform.GetComponent<MeshRenderer>();
 
         StartCoroutine(SetNewDestination());
         StartCoroutine(RandomlyDisappear());
@@ -42,9 +50,11 @@ public class GhostCarController : MonoBehaviour
             firstCheckpoint = false;
             notAtCheckpoint = false;
 
+
             car.enabled = true;
             ToggleWheels(wheels, true);
             trail.emitting = false;
+            trail.Clear();
         }
 
         //if (checkpointManager.GetCurrentCheckpoint() >= checkpointManager.Checkpoints.Length)
@@ -78,10 +88,10 @@ public class GhostCarController : MonoBehaviour
 
     IEnumerator SetNewDestination()
     {
-        Debug.Log("GO!");
-
-        while(keepMoving)
+        while (keepMoving)
         {
+            Debug.Log("GO!");
+
             yield return new WaitForSeconds(firstCheckpoint ? 0f : 4f);
 
             notAtCheckpoint = true;
@@ -91,17 +101,15 @@ public class GhostCarController : MonoBehaviour
 
             DebugText = "Destination: " + currentWorldDestination;
         }
-}
+    }
 
     IEnumerator RandomlyDisappear()
-    {
-        TrailRenderer trail = transform.Find("Trail").GetComponent<TrailRenderer>();
-        GameObject[] wheels = GameObject.FindGameObjectsWithTag("Wheel");
-        MeshRenderer car = transform.GetComponent<MeshRenderer>();
-
+    { 
         while (notAtCheckpoint)
-        {
-            int rnd1 = Random.Range(3, 9);
+        {   
+            Debug.Log(notAtCheckpoint);
+
+            int rnd1 = Random.Range(2, 6);
 
             yield return new WaitForSeconds(rnd1);
 
@@ -109,7 +117,7 @@ public class GhostCarController : MonoBehaviour
             car.enabled = false;
             trail.emitting = true;
 
-            int rnd2 = Random.Range(2, 7);
+            int rnd2 = Random.Range(2, 6);
 
             yield return new WaitForSeconds(rnd2);
 

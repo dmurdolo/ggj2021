@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 296154691}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.11501982, g: 0.07348511, b: 0.151666, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,36 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &43644421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 43644422}
+  m_Layer: 0
+  m_Name: EndGame
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &43644422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 43644421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -144.11188, y: 10.377965, z: 127.7271}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &296154690
 GameObject:
   m_ObjectHideFlags: 0
@@ -826,7 +856,7 @@ MonoBehaviour:
   - {fileID: 1647821604449236003, guid: afea965afc2165b43b98bc436916d9db, type: 3}
   - {fileID: 1647821604449236003, guid: 5f1cc7cc302c09c469df1cca5d585173, type: 3}
   - {fileID: 1647821604449236003, guid: d3a125c597d5aee4789187baf765233b, type: 3}
-  - {fileID: 1647821604449236003, guid: d3a125c597d5aee4789187baf765233b, type: 3}
+  - {fileID: 1647821604449236003, guid: 7b2dbafaf71417948b488806110cf7fd, type: 3}
   CurbTiles:
   - {fileID: 4272453547262947806, guid: 88d0b786b39c0534aa3c09dfa3f37f7f, type: 3}
   - {fileID: 4272453547262947806, guid: ba111154d3e2bea4d84205c8bcde054b, type: 3}

@@ -358,7 +358,7 @@ TrailRenderer:
     shadowBias: 0.5
     generateLightingData: 1
   m_MinVertexDistance: 0.2
-  m_Autodestruct: 1
+  m_Autodestruct: 0
   m_Emitting: 1
 --- !u!1 &2389656503767793927
 GameObject:
@@ -1073,8 +1073,8 @@ MonoBehaviour:
   visualCar: {fileID: 6139400744669356940}
   centreOfMass: {fileID: 7369900279226646226}
   maxAngle: 25
-  maxTorque: 300
-  topSpeed: 75
+  maxTorque: 250
+  topSpeed: 50
   currentSpeed: 0
   CarEngine: {fileID: 3649518426479357451}
   lights:
@@ -1223,7 +1223,7 @@ TrailRenderer:
     shadowBias: 0.5
     generateLightingData: 1
   m_MinVertexDistance: 0.2
-  m_Autodestruct: 1
+  m_Autodestruct: 0
   m_Emitting: 1
 --- !u!1 &7097326662763617703
 GameObject:
